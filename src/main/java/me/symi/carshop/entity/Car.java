@@ -3,13 +3,14 @@ package me.symi.carshop.entity;
 import jakarta.persistence.*;
 
 @Entity
+@Table(name = "car")
 public class Car {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "engine_id")
     private CarEngine carEngine;
     @Column(name = "brand")

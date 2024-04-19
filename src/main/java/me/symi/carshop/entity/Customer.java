@@ -3,6 +3,7 @@ package me.symi.carshop.entity;
 import jakarta.persistence.*;
 
 @Entity
+@Table(name = "customer")
 public class Customer {
 
     @Id
