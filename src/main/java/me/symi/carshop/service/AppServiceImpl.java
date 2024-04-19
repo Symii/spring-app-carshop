@@ -1,9 +1,6 @@
 package me.symi.carshop.service;
 
-import me.symi.carshop.entity.Car;
-import me.symi.carshop.entity.CarEngine;
-import me.symi.carshop.entity.Customer;
-import me.symi.carshop.entity.Order;
+import me.symi.carshop.entity.*;
 import me.symi.carshop.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,16 +16,18 @@ public class AppServiceImpl implements AppService {
     private CustomerRepository customerRepository;
     private OrderRepository orderRepository;
     private ReviewRepository reviewRepository;
+    private ImageRepository imageRepository;
 
     @Autowired
     public AppServiceImpl(CarRepository carRepository, CarEngineRepository carEngineRepository,
                       CustomerRepository customerRepository, OrderRepository orderRepository,
-                      ReviewRepository reviewRepository) {
+                      ReviewRepository reviewRepository, ImageRepository imageRepository) {
         this.carRepository = carRepository;
         this.carEngineRepository = carEngineRepository;
         this.customerRepository = customerRepository;
         this.orderRepository = orderRepository;
         this.reviewRepository = reviewRepository;
+        this.imageRepository = imageRepository;
     }
 
 
@@ -136,5 +135,63 @@ public class AppServiceImpl implements AppService {
     @Override
     public void deleteOrderById(int theId) {
         orderRepository.deleteById(theId);
+    }
+
+    @Override
+    public List<Review> findAllReviews() {
+        return reviewRepository.findAll();
+    }
+
+    @Override
+    public Review findReviewById(int theId) {
+        Optional<Review> reviewOptional = reviewRepository.findById(theId);
+
+        Review review = null;
+        if(reviewOptional.isPresent()) {
+            review = reviewOptional.get();
+        } else {
+            throw new RuntimeException("Did not find review id - " + theId);
+        }
+
+        return review;
+    }
+
+    @Override
+    public Review saveReview(Review theReview) {
+        return reviewRepository.save(theReview);
+    }
+
+    @Override
+    public void deleteReviewById(int theId) {
+        reviewRepository.deleteById(theId);
+    }
+
+    @Override
+    public List<ImageEntity> findAllImages() {
+        return imageRepository.findAll();
+    }
+
+    @Override
+    public ImageEntity findImageById(int theId) {
+        Optional<ImageEntity> imageOptional = imageRepository.findById(theId);
+
+        ImageEntity image = null;
+        if(imageOptional.isPresent()) {
+            image = imageOptional.get();
+        } else {
+            throw new RuntimeException("Did not find image id - " + theId);
+        }
+
+        return image;
+    }
+
+    @Override
+    public ImageEntity saveImage(ImageEntity theImage) {
+        return imageRepository.save(theImage);
+    }
+
+    @Override
+    public void deleteImageById(int theId) {
+        imageRepository.deleteById(theId);
     }
 }

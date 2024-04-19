@@ -1,9 +1,6 @@
 package me.symi.carshop.service;
 
-import me.symi.carshop.entity.Car;
-import me.symi.carshop.entity.CarEngine;
-import me.symi.carshop.entity.Customer;
-import me.symi.carshop.entity.Order;
+import me.symi.carshop.entity.*;
 
 import java.util.List;
 
@@ -23,6 +20,13 @@ public interface AppService {
     Order findOrderById(int theId);
     Order saveOrder(Order theOrder);
     void deleteOrderById(int theId);
-
+    List<Review> findAllReviews();
+    Review findReviewById(int theId);
+    Review saveReview(Review theReview);
+    void deleteReviewById(int theId);
+    List<ImageEntity> findAllImages();
+    ImageEntity findImageById(int theId);
+    ImageEntity saveImage(ImageEntity theImage);
+    void deleteImageById(int theId);
 
 }

@@ -1,9 +1,6 @@
 package me.symi.carshop;
 
-import me.symi.carshop.entity.Car;
-import me.symi.carshop.entity.CarEngine;
-import me.symi.carshop.entity.Customer;
-import me.symi.carshop.entity.Order;
+import me.symi.carshop.entity.*;
 import me.symi.carshop.service.AppService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -25,12 +22,25 @@ public class CarshopApplication {
 			// saveNewCar(appService);
 			// addNewCustomer(appService);
 			// createOrder(appService);
-			addReview(appService);
+			// addReview(appService);
+			// deleteReview(appService);
 		};
 	}
 
-	private void addReview(AppService appService) {
+	private void deleteReview(AppService appService) {
+		System.out.println("Deleting review...");
+		appService.deleteReviewById(1);
+		System.out.println("Done.");
+	}
 
+	private void addReview(AppService appService) {
+		Car car = appService.findCarById(1);
+		Customer customer = appService.findCustomerById(1);
+		Review tempReview = new Review(car, customer, (short) 2, "What a dumb car! Waste of money!!!");
+
+		System.out.println("Adding new review...");
+		appService.saveReview(tempReview);
+		System.out.println("Done.");
 	}
 
 	private void createOrder(AppService appService) {
