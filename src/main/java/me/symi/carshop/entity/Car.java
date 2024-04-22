@@ -19,6 +19,16 @@ public class Car {
     private String model;
     @Column(name = "price")
     private int price;
+    @Column(name = "year_produced")
+    private int yearProduced;
+    @Column(name = "mileage")
+    private int mileage;
+    @Column(name = "gear_type")
+    private String gearType;
+    @Column(name = "color")
+    private String color;
+    @Column(name = "damaged")
+    private boolean damaged;
     @Column(name = "description")
     private String description;
 
@@ -26,11 +36,16 @@ public class Car {
 
     }
 
-    public Car(CarEngine carEngine, String brand, String model, int price, String description) {
+    public Car(CarEngine carEngine, String brand, String model, int price, int yearProduced, int mileage, String gearType, String color, boolean damaged, String description) {
         this.carEngine = carEngine;
         this.brand = brand;
         this.model = model;
         this.price = price;
+        this.yearProduced = yearProduced;
+        this.mileage = mileage;
+        this.gearType = gearType;
+        this.color = color;
+        this.damaged = damaged;
         this.description = description;
     }
 
@@ -74,6 +89,46 @@ public class Car {
         this.price = price;
     }
 
+    public int getYearProduced() {
+        return yearProduced;
+    }
+
+    public void setYearProduced(int yearProduced) {
+        this.yearProduced = yearProduced;
+    }
+
+    public int getMileage() {
+        return mileage;
+    }
+
+    public void setMileage(int mileage) {
+        this.mileage = mileage;
+    }
+
+    public String getGearType() {
+        return gearType;
+    }
+
+    public void setGearType(String gearType) {
+        this.gearType = gearType;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public boolean isDamaged() {
+        return damaged;
+    }
+
+    public void setDamaged(boolean damaged) {
+        this.damaged = damaged;
+    }
+
     public String getDescription() {
         return description;
     }
@@ -90,6 +145,11 @@ public class Car {
                 ", brand='" + brand + '\'' +
                 ", model='" + model + '\'' +
                 ", price=" + price +
+                ", yearProduced=" + yearProduced +
+                ", mileage=" + mileage +
+                ", gearType='" + gearType + '\'' +
+                ", color='" + color + '\'' +
+                ", damaged=" + damaged +
                 ", description='" + description + '\'' +
                 '}';
     }

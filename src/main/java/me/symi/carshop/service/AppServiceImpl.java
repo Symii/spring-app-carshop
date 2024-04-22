@@ -186,6 +186,11 @@ public class AppServiceImpl implements AppService {
     }
 
     @Override
+    public List<ImageEntity> findAllImagesByCarId(int theId) {
+        return imageRepository.findAllImagesByCarId(theId);
+    }
+
+    @Override
     public ImageEntity saveImage(ImageEntity theImage) {
         return imageRepository.save(theImage);
     }

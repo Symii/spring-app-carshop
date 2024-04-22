@@ -1,5 +1,6 @@
 package me.symi.carshop.controller;
 
+import me.symi.carshop.entity.Car;
 import me.symi.carshop.entity.ImageEntity;
 import me.symi.carshop.repository.ImageRepository;
 import me.symi.carshop.service.AppService;
@@ -21,7 +22,8 @@ public class ImageController {
 
     @GetMapping("/images")
     public String showImages(Model model) {
-        List<ImageEntity> images = appService.findAllImages();
+        List<ImageEntity> images = appService.findAllImagesByCarId(1);
+        // List<Car> cars = appService.findAllCars();
         model.addAttribute("images", images);
         return "image-upload";
     }
