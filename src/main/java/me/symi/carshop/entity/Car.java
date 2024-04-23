@@ -2,6 +2,8 @@ package me.symi.carshop.entity;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "car")
 public class Car {
@@ -31,6 +33,10 @@ public class Car {
     private boolean damaged;
     @Column(name = "description")
     private String description;
+    @OneToMany(mappedBy = "car", cascade = {CascadeType.DETACH, CascadeType.MERGE,
+            CascadeType.PERSIST, CascadeType.REFRESH},
+            fetch = FetchType.EAGER)
+    private List<ImageEntity> images;
 
     public Car() {
 
@@ -135,6 +141,14 @@ public class Car {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public List<ImageEntity> getImages() {
+        return images;
+    }
+
+    public void setImages(List<ImageEntity> images) {
+        this.images = images;
     }
 
     @Override

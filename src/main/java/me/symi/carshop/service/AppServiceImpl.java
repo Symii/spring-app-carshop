@@ -11,12 +11,12 @@ import java.util.Optional;
 @Service
 public class AppServiceImpl implements AppService {
 
-    private CarRepository carRepository;
-    private CarEngineRepository carEngineRepository;
-    private CustomerRepository customerRepository;
-    private OrderRepository orderRepository;
-    private ReviewRepository reviewRepository;
-    private ImageRepository imageRepository;
+    private final CarRepository carRepository;
+    private final CarEngineRepository carEngineRepository;
+    private final CustomerRepository customerRepository;
+    private final OrderRepository orderRepository;
+    private final ReviewRepository reviewRepository;
+    private final ImageRepository imageRepository;
 
     @Autowired
     public AppServiceImpl(CarRepository carRepository, CarEngineRepository carEngineRepository,
