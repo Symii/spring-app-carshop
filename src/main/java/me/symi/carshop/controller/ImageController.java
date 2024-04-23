@@ -20,11 +20,13 @@ public class ImageController {
     @Autowired
     private AppService appService;
 
-    @GetMapping("/images")
-    public String showImages(Model model) {
-        List<ImageEntity> images = appService.findAllImagesByCarId(1);
-        // List<Car> cars = appService.findAllCars();
-        model.addAttribute("images", images);
+    @GetMapping("/car/{carId}")
+    public String showImages(Model model, @PathVariable("carId") int carId) {
+        Car theCar = appService.findCarById(carId);
+       // List<ImageEntity> images = appService.findAllImagesByCar(carList.getFirst());
+       // model.addAttribute("images", images);
+
+        model.addAttribute("theCar", theCar);
         return "image-upload";
     }
 

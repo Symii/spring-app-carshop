@@ -5,8 +5,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <style>
+        .gallery-container {
+  width: 500px;
+  margin: 0 auto;
+}
+
+.gallery {
+  position: relative;
+  overflow: hidden;
+}
+
+.gallery-images {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.gallery-images img {
+  max-width: 100%;
+  height: auto;
+}
+
+.prev-btn,
+.next-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: white;
+  font-size: 20px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.prev-btn {
+  left: 0;
+}
+
+.next-btn {
+  right: 0;
+}
+    </style>
 </head>
 <body>
+<!--
 <h1>Images Form</h1>
 <hr>
 <form action="/uploadImage" method="post" enctype="multipart/form-data">
@@ -18,18 +62,80 @@
     <h1 class="text-center mt-5 mb-3">Audi Gallery</h1>
 
     <div class="row">
-        <div th:each="image : ${images}" class="col-md-4 mb-4">
+        <div th:each="theCar : ${cars}" class="col-md-4 mb-4">
             <div class="card">
-                <img th:src="@{'/image/' + ${image.id}}" class="card-img-top" alt="..."
+                <img th:each="image : ${theCar.images}" th:src="@{'/image/' + ${image.id}}" class="card-img-top" alt="..."
                      style="width: 100%; height: 200px;">
                 <div class="card-body">
-                    <h5 th:text="${image.car.model}" class="card-title"></h5>
-                    <p th:text="${image.car.description}" class="card-text"></p>
+                    <h5 th:text="${theCar.model}" class="card-title"></h5>
+                    <p th:text="${theCar.description}" class="card-text"></p>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</div>-->
 
+<div class="gallery-container">
+    <div class="gallery">
+        <div class="gallery-images">
+            <img th:each="image : ${theCar.images}" th:src="@{'/image/' + ${image.id}}" alt="...">
+        </div>
+        <button class="prev-btn" onclick="prevSlide()">&#10094;</button>
+        <button class="next-btn" onclick="nextSlide()">&#10095;</button>
+    </div>
+</div>
+<h2 th:text="${theCar.brand} + ' ' + ${theCar.model}"></h2>
+<label th:text="${theCar.yearProduced} + ' · '"></label>
+<label th:text="${theCar.mileage} + ' km · '"></label>
+<label th:text="${theCar.carEngine.capacity} + ' · '"></label>
+
+<p>
+    <label></label>
+    <label></label>
+</p>
+<!--
+<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+
+
+            <div th:each="image, iterStat : ${theCar.images}" th:if="${iterStat.index == 0}" class="carousel-item active">
+                <img class="d-block w-100" th:src="@{'/image/' + ${image.id}}" alt="...">
+            </div>
+            <div th:each="image, iterStat : ${theCar.images}" th:unless="${iterStat.index == 0}" class="carousel-item">
+                <img class="d-block w-100" th:src="@{'/image/' + ${image.id}}" alt="...">
+            </div>
+
+
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div> -->
+
+<script>
+    let currentIndex = 0;
+    const images = document.querySelectorAll('.gallery-images img');
+    const totalImages = images.length;
+
+    function nextSlide() {
+      currentIndex = (currentIndex + 1) % totalImages;
+      updateGallery();
+    }
+
+    function prevSlide() {
+      currentIndex = (currentIndex - 1 + totalImages) % totalImages;
+      updateGallery();
+    }
+
+    function updateGallery() {
+      const offset = -currentIndex * 500; // 500px to szerokość obrazu
+      document.querySelector('.gallery-images').style.transform = `translateX(${offset}px)`;
+    }
+</script>
 </body>
 </html>

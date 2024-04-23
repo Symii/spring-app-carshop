@@ -186,8 +186,8 @@ public class AppServiceImpl implements AppService {
     }
 
     @Override
-    public List<ImageEntity> findAllImagesByCarId(int theId) {
-        return imageRepository.findAllImagesByCarId(theId);
+    public List<ImageEntity> findAllImagesByCar(Car theCar) {
+        return imageRepository.findAllImagesByCar(theCar);
     }
 
     @Override

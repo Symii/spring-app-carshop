@@ -26,7 +26,7 @@ public interface AppService {
     void deleteReviewById(int theId);
     List<ImageEntity> findAllImages();
     ImageEntity findImageById(int theId);
-    List<ImageEntity> findAllImagesByCarId(int theId);
+    List<ImageEntity> findAllImagesByCar(Car theCar);
     ImageEntity saveImage(ImageEntity theImage);
     void deleteImageById(int theId);
 

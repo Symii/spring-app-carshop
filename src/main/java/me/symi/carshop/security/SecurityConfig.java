@@ -21,7 +21,7 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.POST, "/api/cars").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.PUT, "/api/cars").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.DELETE, "/api/cars/**").hasRole("ADMIN")
-                        .requestMatchers(HttpMethod.GET, "/images").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/car/**").permitAll()
                         .requestMatchers(HttpMethod.GET, "/image/**").permitAll()
                         .requestMatchers(HttpMethod.GET, "/css/**").permitAll()
                         .requestMatchers(HttpMethod.POST, "/uploadImage").permitAll()
