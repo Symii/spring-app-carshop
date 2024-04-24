@@ -99,6 +99,11 @@ public class AppServiceImpl implements AppService {
     }
 
     @Override
+    public Customer findCustomerByEmail(String email) {
+        return customerRepository.findCustomerByEmail(email);
+    }
+
+    @Override
     public Customer saveCustomer(Customer theCustomer) {
         return customerRepository.save(theCustomer);
     }

@@ -1,18 +1,35 @@
 package me.symi.carshop.security;
 
+import me.symi.carshop.service.UserService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configurers.LogoutConfigurer;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
 @Configuration
 public class SecurityConfig {
 
     @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+    public BCryptPasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+
+    @Bean
+    public DaoAuthenticationProvider authenticationProvider(UserService userService) {
+        DaoAuthenticationProvider auth = new DaoAuthenticationProvider();
+        auth.setUserDetailsService(userService);
+        auth.setPasswordEncoder(passwordEncoder());
+        return auth;
+    }
+
+    @Bean
+    public SecurityFilterChain filterChain(HttpSecurity http, AuthenticationSuccessHandler customAuthenticationSuccessHandler) throws Exception {
 
         http.authorizeHttpRequests(configurer ->
                 configurer
@@ -28,8 +45,10 @@ public class SecurityConfig {
                         .anyRequest().authenticated()
         )
         .formLogin(form ->
-                form.loginPage("/login")
+                form
+                        .loginPage("/login")
                         .loginProcessingUrl("/authenticateTheUser")
+                        .successHandler(customAuthenticationSuccessHandler)
                         .permitAll()
         ).logout(LogoutConfigurer::permitAll)
                 .exceptionHandling(config ->

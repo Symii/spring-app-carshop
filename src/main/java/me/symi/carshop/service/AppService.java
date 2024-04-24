@@ -14,6 +14,7 @@ public interface AppService {
     List<CarEngine> findAllEngines();
     List<Customer> findAllCustomers();
     Customer findCustomerById(int theId);
+    Customer findCustomerByEmail(String email);
     Customer saveCustomer(Customer theCustomer);
     void deleteCustomerById(int theId);
     List<Order> findAllOrders();

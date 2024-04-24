@@ -53,11 +53,12 @@ public class CarshopApplication {
 	}
 
 	private void addNewCustomer(AppService appService) {
-		Customer temp1 = new Customer("Anna","Kowalska","Warszawa Mokotow 55","anna@gmail.com","321234764");
-		Customer temp2 = new Customer("Michał","Nowak","Słupsk Szczecinska 21","michal@gmail.com","567343223");
-		Customer temp3 = new Customer("Maria","Wiśniewska","Gdańsk Wczasowa 5a","maria@gmail.com","690213433");
-		Customer temp4 = new Customer("Piotr","Dąbrowski","Szczecin Gdanska 1","piotr@gmail.com","722900123");
-		Customer temp5 = new Customer("Katarzyna","Lewandowska","Kraków Nowogród 11b","katarzyna@gmail.com","577123099");
+		String hash = "$2a$12$/vLeO2WkzFQDF3l6UbqlaewDEAw.k.np5dh0SWi7CRD9xOlFexRUe"; // test123
+		Customer temp1 = new Customer("Anna","Kowalska","Warszawa Mokotow 55","321234764","anna@gmail.com",hash);
+		Customer temp2 = new Customer("Michał","Nowak","Słupsk Szczecinska 21","567343223","michal@gmail.com",hash);
+		Customer temp3 = new Customer("Maria","Wiśniewska","Gdańsk Wczasowa 5a","690213433","maria@gmail.com",hash);
+		Customer temp4 = new Customer("Piotr","Dąbrowski","Szczecin Gdanska 1","722900123","piotr@gmail.com",hash);
+		Customer temp5 = new Customer("Katarzyna","Lewandowska","Kraków Nowogród 11b","577123099","katarzyna@gmail.com",hash);
 
 		System.out.println("Saving new customers...");
 		appService.saveCustomer(temp1);

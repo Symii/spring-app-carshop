@@ -2,6 +2,8 @@ package me.symi.carshop.entity;
 
 import jakarta.persistence.*;
 
+import java.util.Collection;
+
 @Entity
 @Table(name = "customer")
 public class Customer {
@@ -16,21 +18,32 @@ public class Customer {
     private String lastName;
     @Column(name = "adres")
     private String adres;
-    @Column(name = "email")
-    private String email;
     @Column(name = "phone_number")
     private String phoneNumber;
+    @Column(name = "email")
+    private String email;
+    @Column(name = "password")
+    private String password;
+    @Column(name = "enabled")
+    private boolean enabled;
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinTable(name = "users_roles",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private Collection<Role> roles;
 
     public Customer() {
 
     }
 
-    public Customer(String firstName, String lastName, String adres, String email, String phoneNumber) {
+    public Customer(String firstName, String lastName, String adres, String phoneNumber, String email, String password) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.adres = adres;
-        this.email = email;
         this.phoneNumber = phoneNumber;
+        this.email = email;
+        this.password = password;
+        this.enabled = true;
     }
 
     public int getId() {
@@ -79,6 +92,30 @@ public class Customer {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
+
+    public Collection<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Collection<Role> roles) {
+        this.roles = roles;
     }
 
     @Override
