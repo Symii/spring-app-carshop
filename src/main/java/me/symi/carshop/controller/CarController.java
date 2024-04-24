@@ -2,7 +2,6 @@ package me.symi.carshop.controller;
 
 import me.symi.carshop.entity.Car;
 import me.symi.carshop.entity.ImageEntity;
-import me.symi.carshop.repository.ImageRepository;
 import me.symi.carshop.service.AppService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -12,10 +11,9 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
-import java.util.List;
 
 @Controller
-public class ImageController {
+public class CarController {
 
     @Autowired
     private AppService appService;
