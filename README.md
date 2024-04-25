@@ -24,7 +24,7 @@ Aplikacja została zbudowana w oparciu o framework **Spring Boot**.
 
 1. **Klonowanie repozytorium:** Sklonuj to repozytorium na swoje lokalne środowisko.
    ```bash
-   git clone https://github.com/twoja-nazwa-uzytkownika/carshop.git
+   git clone https://github.com/symii/spring-app-carshop.git
 2. **Uruchomienie aplikacji:** Przejdź do katalogu z aplikacją i uruchom ją za pomocą narzędzia Maven.
     ```bash
     cd carshop
