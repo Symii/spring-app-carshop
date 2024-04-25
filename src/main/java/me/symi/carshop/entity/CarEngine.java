@@ -3,6 +3,7 @@ package me.symi.carshop.entity;
 import jakarta.persistence.*;
 
 import java.sql.Timestamp;
+import java.time.Instant;
 
 @Entity
 @Table(name = "engine")
@@ -32,6 +33,7 @@ public class CarEngine {
         this.horsePower = horsePower;
         this.capacity = capacity;
         this.fuelType = fuelType;
+        createdAt = Timestamp.from(Instant.now());
     }
 
     public int getId() {

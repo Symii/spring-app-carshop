@@ -19,12 +19,29 @@ public class CarshopApplication {
 	@Bean
 	public CommandLineRunner commandLineRunner(AppService appService) {
 		return runner -> {
-			// saveNewCar(appService);
+			// createEngines(appService);
 			// addNewCustomer(appService);
+			// saveNewCar(appService);
 			// createOrder(appService);
 			// addReview(appService);
 			// deleteReview(appService);
 		};
+	}
+
+	private void createEngines(AppService appService) {
+		CarEngine engine1 = new CarEngine("TFSI 2.0L", 252, 2.0f,"diesel");
+		CarEngine engine2 = new CarEngine("TDI 3.0L", 286, 3.0f,"diesel");
+		CarEngine engine3 = new CarEngine("TFSI 2.5:", 400, 2.5f,"benzyna");
+		CarEngine engine4 = new CarEngine("40 TDI", 204, 2.0f,"diesel");
+		CarEngine engine5 = new CarEngine("TFSI 3.0L", 456, 3.0f,"benzyna");
+
+		System.out.println("Saving engines...");
+		appService.saveCarEngine(engine1);
+		appService.saveCarEngine(engine2);
+		appService.saveCarEngine(engine3);
+		appService.saveCarEngine(engine4);
+		appService.saveCarEngine(engine5);
+		System.out.println("Done.");
 	}
 
 	private void deleteReview(AppService appService) {
@@ -57,21 +74,17 @@ public class CarshopApplication {
 		Customer temp1 = new Customer("Anna","Kowalska","Warszawa Mokotow 55","321234764","anna@gmail.com",hash);
 		Customer temp2 = new Customer("Michał","Nowak","Słupsk Szczecinska 21","567343223","michal@gmail.com",hash);
 		Customer temp3 = new Customer("Maria","Wiśniewska","Gdańsk Wczasowa 5a","690213433","maria@gmail.com",hash);
-		Customer temp4 = new Customer("Piotr","Dąbrowski","Szczecin Gdanska 1","722900123","piotr@gmail.com",hash);
-		Customer temp5 = new Customer("Katarzyna","Lewandowska","Kraków Nowogród 11b","577123099","katarzyna@gmail.com",hash);
 
 		System.out.println("Saving new customers...");
 		appService.saveCustomer(temp1);
 		appService.saveCustomer(temp2);
 		appService.saveCustomer(temp3);
-		appService.saveCustomer(temp4);
-		appService.saveCustomer(temp5);
 		System.out.println("Done.");
 	}
 
 	private void saveNewCar(AppService appService) {
 		List<CarEngine> engineList = appService.findAllEngines();
-		Car car = new Car(engineList.getFirst(), "Audi", "A4 B8", 29500,
+		Car car = new Car(engineList.getFirst(), "Audi", "A4 B8", 79500,
 				2017, 133400, "manualna", "czarny",
 				false, "Dobre auto kontak tel: 123456789");
 		System.out.println("Saving car...");

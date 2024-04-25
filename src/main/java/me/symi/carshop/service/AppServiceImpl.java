@@ -204,4 +204,33 @@ public class AppServiceImpl implements AppService {
     public void deleteImageById(int theId) {
         imageRepository.deleteById(theId);
     }
+
+    @Override
+    public List<CarEngine> findAllCarEngines() {
+        return carEngineRepository.findAll();
+    }
+
+    @Override
+    public CarEngine findCarEngineById(int theId) {
+        Optional<CarEngine> engineOptional = carEngineRepository.findById(theId);
+
+        CarEngine engine = null;
+        if(engineOptional.isPresent()) {
+            engine = engineOptional.get();
+        } else {
+            throw new RuntimeException("Did not find car engine id - " + theId);
+        }
+
+        return engine;
+    }
+
+    @Override
+    public CarEngine saveCarEngine(CarEngine theCar) {
+        return carEngineRepository.save(theCar);
+    }
+
+    @Override
+    public void deleteCarEngineById(int theId) {
+        carEngineRepository.deleteById(theId);
+    }
 }

@@ -1,0 +1,65 @@
+.gallery-container {
+  width: 500px;
+}
+
+.gallery {
+  position: relative;
+  overflow: hidden;
+}
+
+.gallery-images {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.gallery-images img {
+  max-width: 100%;
+  height: auto;
+}
+
+.prev-btn,
+.next-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: white;
+  font-size: 20px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.prev-btn {
+  left: 0;
+}
+
+.next-btn {
+  right: 0;
+}
+
+.car-container {
+    margin: 40px auto;
+    width: 1000px;
+    display: flex;
+    justify-content: space-between;
+}
+.car-info {
+    max-width: 400px;
+}
+
+.car-price {
+    display: flex;
+}
+
+.car-price label:first-child {
+    color: #C82814;
+    font-weight: bold;
+    font-size: 23px;
+}
+
+.car-price label:nth-child(2) {
+    color: #C82814;
+    font-size: 16px;
+    margin-left: 5px;
+}

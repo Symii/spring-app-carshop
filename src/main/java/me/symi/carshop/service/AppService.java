@@ -30,5 +30,9 @@ public interface AppService {
     List<ImageEntity> findAllImagesByCar(Car theCar);
     ImageEntity saveImage(ImageEntity theImage);
     void deleteImageById(int theId);
+    List<CarEngine> findAllCarEngines();
+    CarEngine findCarEngineById(int theId);
+    CarEngine saveCarEngine(CarEngine theCar);
+    void deleteCarEngineById(int theId);
 
 }

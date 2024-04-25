@@ -1,53 +1,12 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Images</title>
+    <title th:text="${theCar.brand} + ' ' + ${theCar.model} + ' ' + ${theCar.yearProduced} + 'r.'"></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-
-    <style>
-        .gallery-container {
-  width: 500px;
-  margin: 0 auto;
-}
-
-.gallery {
-  position: relative;
-  overflow: hidden;
-}
-
-.gallery-images {
-  display: flex;
-  transition: transform 0.5s ease;
-}
-
-.gallery-images img {
-  max-width: 100%;
-  height: auto;
-}
-
-.prev-btn,
-.next-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(0, 0, 0, 0.5);
-  border: none;
-  color: white;
-  font-size: 20px;
-  padding: 10px;
-  cursor: pointer;
-}
-
-.prev-btn {
-  left: 0;
-}
-
-.next-btn {
-  right: 0;
-}
-    </style>
+    <link rel="stylesheet" th:href="@{/css/car-info.css}">
+    <link rel="icon" type="image/x-icon" th:href="@{/img/icon.ico}">
 </head>
 <body>
 <!--
@@ -75,19 +34,33 @@
     </div>
 </div>-->
 
-<div class="gallery-container">
-    <div class="gallery">
-        <div class="gallery-images">
-            <img th:each="image : ${theCar.images}" th:src="@{'/image/' + ${image.id}}" alt="...">
+
+<div class="car-container">
+    <div class="gallery-container">
+        <div class="gallery">
+            <div class="gallery-images">
+                <img th:each="image : ${theCar.images}" th:src="@{'/image/' + ${image.id}}" alt="...">
+            </div>
+            <button class="prev-btn" onclick="prevSlide()">&#10094;</button>
+            <button class="next-btn" onclick="nextSlide()">&#10095;</button>
         </div>
-        <button class="prev-btn" onclick="prevSlide()">&#10094;</button>
-        <button class="next-btn" onclick="nextSlide()">&#10095;</button>
+    </div>
+    <div class="car-info">
+        <h2 th:text="${theCar.brand} + ' ' + ${theCar.model} + ' ' + ${theCar.carEngine.name} + ' ' + ${theCar.gearType}"></h2>
+        <label th:text="${theCar.yearProduced} + ' · '"></label>
+        <label th:text="${theCar.mileage} + ' km · '"></label>
+        <label th:text="${theCar.carEngine.capacity} + ' · '"></label>
+        <label th:text="${theCar.carEngine.fuelType}"></label>
+
+        <div class="car-price">
+            <label th:text="${theCar.price}"></label>
+            <label>PLN</label>
+        </div>
+
     </div>
 </div>
-<h2 th:text="${theCar.brand} + ' ' + ${theCar.model}"></h2>
-<label th:text="${theCar.yearProduced} + ' · '"></label>
-<label th:text="${theCar.mileage} + ' km · '"></label>
-<label th:text="${theCar.carEngine.capacity} + ' · '"></label>
+
+
 
 <p>
     <label></label>
@@ -137,5 +110,6 @@
       document.querySelector('.gallery-images').style.transform = `translateX(${offset}px)`;
     }
 </script>
+
 </body>
 </html>
