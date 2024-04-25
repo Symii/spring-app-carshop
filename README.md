@@ -31,5 +31,5 @@ Aplikacja została zbudowana w oparciu o framework **Spring Boot**.
     mvn spring-boot:run
 3. **Przeglądanie:** Otwórz przeglądarkę internetową i przejdź pod adres.
     ```bash
-     http://localhost:8080
+     http://localhost:80
 ![image](https://github.com/Symii/spring-app-carshop/assets/46313859/197bfa75-8582-4bc0-bb5c-5c14d99bdd38)
