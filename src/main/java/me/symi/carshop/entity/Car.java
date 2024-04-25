@@ -37,12 +37,16 @@ public class Car {
             CascadeType.PERSIST, CascadeType.REFRESH},
             fetch = FetchType.EAGER)
     private List<ImageEntity> images;
+    @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE,
+            CascadeType.PERSIST, CascadeType.REFRESH})
+    @JoinColumn(name = "customer_id")
+    private Customer customer;
 
     public Car() {
 
     }
 
-    public Car(CarEngine carEngine, String brand, String model, int price, int yearProduced, int mileage, String gearType, String color, boolean damaged, String description) {
+    public Car(CarEngine carEngine, String brand, String model, int price, int yearProduced, int mileage, String gearType, String color, boolean damaged, String description, Customer customer) {
         this.carEngine = carEngine;
         this.brand = brand;
         this.model = model;
@@ -53,6 +57,7 @@ public class Car {
         this.color = color;
         this.damaged = damaged;
         this.description = description;
+        this.customer = customer;
     }
 
     public int getId() {
@@ -149,6 +154,14 @@ public class Car {
 
     public void setImages(List<ImageEntity> images) {
         this.images = images;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 
     @Override

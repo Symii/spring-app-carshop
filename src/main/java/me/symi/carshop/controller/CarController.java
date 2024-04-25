@@ -25,7 +25,7 @@ public class CarController {
        // model.addAttribute("images", images);
 
         model.addAttribute("theCar", theCar);
-        return "image-upload";
+        return "car-details";
     }
 
     @GetMapping(value = "/image/{id}", produces = MediaType.IMAGE_JPEG_VALUE)
@@ -46,7 +46,7 @@ public class CarController {
             return "redirect:/images";
         } catch (IOException e) {
             e.printStackTrace();
-            return "redirect:/images";
+            return "redirect:/cars";
         }
     }
 

@@ -86,7 +86,7 @@ public class CarshopApplication {
 		List<CarEngine> engineList = appService.findAllEngines();
 		Car car = new Car(engineList.getFirst(), "Audi", "A4 B8", 79500,
 				2017, 133400, "manualna", "czarny",
-				false, "Dobre auto kontak tel: 123456789");
+				false, "Dobre auto kontak tel: 123456789", appService.findCustomerById(1));
 		System.out.println("Saving car...");
 		appService.saveCar(car);
 		System.out.println("Car successfuly saved.");

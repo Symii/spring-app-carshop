@@ -63,3 +63,73 @@
     font-size: 16px;
     margin-left: 5px;
 }
+.car-details-desc-item {
+    display: flex;
+    max-width: 400px;
+    text-align: left;
+    font-size: 15px;
+}
+
+.car-details-desc-item label {
+    width: 200px;
+}
+.car-details-desc-item label:first-child {
+    font-weight: bold;
+    color: #676767;
+}
+.car-details-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.customer-info {
+    border: solid 1px #89898965;
+    padding: 40px 20px;
+    border-radius: 2px;
+}
+
+.contact-button {
+  background-color: #C82814;
+  border: 5px solid #C82814;
+  width: 100%;
+  color: white;
+  padding: 5px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+  font-weight: bold;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+.contact-button:hover {
+  background-color: white;
+  color: #C82814;
+}
+
+.telephone-button {
+  background-color: #fff;
+  border: 5px solid #E74783;
+  width: 100%;
+  color: #E74783;
+  padding: 5px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+  font-weight: bold;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+.telephone-button:hover {
+  background-color: #E74783;
+  color: #fff;
+}
+
+.gallery-bottom-info {
+    width: 100%;
+}
