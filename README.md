@@ -32,4 +32,5 @@ Aplikacja została zbudowana w oparciu o framework **Spring Boot**.
 3. **Przeglądanie:** Otwórz przeglądarkę internetową i przejdź pod adres.
     ```bash
      http://localhost:80
+![image](https://github.com/Symii/spring-app-carshop/assets/46313859/710834ef-b62a-4243-b5b6-ec3483def4a6)
 ![image](https://github.com/Symii/spring-app-carshop/assets/46313859/197bfa75-8582-4bc0-bb5c-5c14d99bdd38)
