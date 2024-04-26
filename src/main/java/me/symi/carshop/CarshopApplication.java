@@ -84,9 +84,9 @@ public class CarshopApplication {
 
 	private void saveNewCar(AppService appService) {
 		List<CarEngine> engineList = appService.findAllEngines();
-		Car car = new Car(engineList.getFirst(), "Audi", "A4 B8", 79500,
-				2017, 133400, "manualna", "czarny",
-				false, "Dobre auto kontak tel: 123456789", appService.findCustomerById(1));
+		Car car = new Car(engineList.get(1), "Audi", "A4 B9", 99980,
+				2020, 67000, "automatyczna", "biały",
+				false, "Do sprzedania eleganckie Audi A4 B9 z 2020 roku w kolorze białym. Samochód w doskonałym stanie, zadbane wnętrze i imponujące osiągi. Idealny wybór dla osób ceniących styl, komfort i niezawodność. Odkryj świat klasy premium z tym wyjątkowym modelem Audi A4.", appService.findCustomerById(1));
 		System.out.println("Saving car...");
 		appService.saveCar(car);
 		System.out.println("Car successfuly saved.");

@@ -8,6 +8,7 @@ public interface AppService {
 
     List<Car> findAllCars();
     Car findCarById(int theId);
+    List<Car> getTwentyRandomCars();
     Car saveCar(Car theCar);
     void deleteCarById(int theId);
     CarEngine findEngineById(int theId);

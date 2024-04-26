@@ -5,6 +5,7 @@ import me.symi.carshop.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -49,6 +50,23 @@ public class AppServiceImpl implements AppService {
 
         return car;
     }
+
+    // TODO: Please change this in production as it generates significant load (preview function).
+    @Override
+    public List<Car> getTwentyRandomCars() {
+        List<Car> randomCars = new ArrayList<>();
+        for(int i = 1; i <= 12; i++) {
+            randomCars.add(findCarById(carRepository.findRandomCarId()));
+        }
+
+        return randomCars;
+    }
+
+    /*
+    @Override
+    public List<Car> getTwentyRandomCars() {
+        return carRepository.findTwentyRandomCars();
+    }*/
 
     @Override
     public Car saveCar(Car theCar) {

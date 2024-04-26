@@ -38,7 +38,7 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
         session.setAttribute("user", theUser);
 
         // forward to home page
-        response.sendRedirect(request.getContextPath() + "/car/1");
+        response.sendRedirect(request.getContextPath() + "/");
     }
 
 }

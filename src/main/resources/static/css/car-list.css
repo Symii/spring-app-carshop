@@ -1,0 +1,63 @@
+.gallery {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.car-list-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.image {
+    width: calc(33% - 20px);
+    text-align: left;
+    position: relative;
+}
+
+.image a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: inherit;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.row-small .image {
+width: calc(17% - 20px);
+    text-align: center;
+}
+
+.image img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.image h2 {
+    margin-bottom: 5px;
+}
+
+.image p {
+    margin-bottom: 5px;
+}
+
+.car-price {
+    display: flex;
+}
+
+.car-price label:first-child {
+    color: #C82814;
+    font-weight: bold;
+    font-size: 23px;
+}
+
+.car-price label:nth-child(2) {
+    color: #C82814;
+    font-size: 16px;
+    margin-left: 5px;
+}
+
