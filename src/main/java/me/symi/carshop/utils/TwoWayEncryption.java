@@ -7,7 +7,7 @@ public class TwoWayEncryption {
             int unicodeValue = data.charAt(i);
             builder.append(String.format("%06d", unicodeValue));
         }
-        return builder.toString().substring(0, 6);
+        return builder.substring(0, 6);
     }
 
     public static String decrypt(String encryptedData) {

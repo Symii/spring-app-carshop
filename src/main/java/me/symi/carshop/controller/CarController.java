@@ -37,7 +37,7 @@ public class CarController {
         for(int i = 1; i <= 12; i++) {
             Car tempCar = randomCars.get(i - 1);
             model.addAttribute("car" + i, tempCar);
-            model.addAttribute("carUrl" + 1, UrlGenerator.getCarUrl(tempCar));
+            model.addAttribute("carUrl" + i, UrlGenerator.getCarUrl(tempCar));
         }
         return "car-list";
     }

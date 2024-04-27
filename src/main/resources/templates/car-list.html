@@ -15,35 +15,7 @@
 </head>
 <body>
 
-<header>
-    <div class="logo">
-        <img th:src="@{/img/carshop.png}" alt="Logo">
-    </div>
-    <nav>
-        <ul>
-            <li><a href="#" class="button-secondary"><i class="bi bi-heart-fill"></i> Obserwowane</a></li>
-
-
-            <li class="dropdown">
-                <a href="#" class="dropbtn"><i class="bi bi-person"></i> <label th:text="${#authentication.name}"></label> <i class="bi bi-caret-down-fill"></i></a>
-                <div class="dropdown-content">
-                    <label>Moje konto</label>
-                    <a href="#">Ogłoszenia</a>
-                    <a href="#">Wiadomości</a>
-                    <a href="#">Ustawienia</a>
-                    <br>
-                    <label>Obserwowane</label>
-                    <a href="#">Ogłoszenia</a>
-                    <a href="#">Wyszukiwania</a>
-                    <br>
-                    <a th:href="@{/logout}">Wyloguj</a>
-                </div>
-            </li>
-
-            <li><a href="#" class="primary-button"><i class="bi bi-plus"></i> Zacznij sprzedawać</a></li>
-        </ul>
-    </nav>
-</header>
+<div th:replace="~{base :: navigation}"></div>
 
 <div class="gallery">
     <div class="car-list-row">
@@ -58,6 +30,7 @@
             </div>
         </div>
         <div class="image">
+            <a th:href="@{${carUrl2}}"></a>
             <img th:src="@{'/image/' + ${car2.images[0].id}}" >
             <h5 th:text="${car2.brand} + ' ' + ${car2.model} + ' ' + ${car2.carEngine.name}"></h5>
             <p th:text="${car2.yearProduced} + ' · ' + ${car2.mileage} + ' km · ' + ${car2.carEngine.capacity} + ' · ' + ${car2.carEngine.fuelType}"></p>
@@ -67,6 +40,7 @@
             </div>
         </div>
         <div class="image">
+            <a th:href="@{${carUrl3}}"></a>
             <img th:src="@{'/image/' + ${car3.images[0].id}}">
             <h5 th:text="${car3.brand} + ' ' + ${car3.model} + ' ' + ${car3.carEngine.name}"></h5>
             <p th:text="${car3.yearProduced} + ' · ' + ${car3.mileage} + ' km · ' + ${car2.carEngine.capacity} + ' · ' + ${car3.carEngine.fuelType}"></p>
@@ -78,6 +52,7 @@
     </div>
     <div class="car-list-row">
         <div class="image">
+            <a th:href="@{${carUrl4}}"></a>
             <img th:src="@{'/image/' + ${car4.images[0].id}}" >
             <h5 th:text="${car4.brand} + ' ' + ${car4.model} + ' ' + ${car4.carEngine.name}"></h5>
             <p th:text="${car4.yearProduced} + ' · ' + ${car4.mileage} + ' km · ' + ${car4.carEngine.capacity} + ' · ' + ${car4.carEngine.fuelType}"></p>
@@ -87,6 +62,7 @@
             </div>
         </div>
         <div class="image">
+            <a th:href="@{${carUrl5}}"></a>
             <img th:src="@{'/image/' + ${car5.images[0].id}}" >
             <h5 th:text="${car5.brand} + ' ' + ${car5.model} + ' ' + ${car5.carEngine.name}"></h5>
             <p th:text="${car5.yearProduced} + ' · ' + ${car5.mileage} + ' km · ' + ${car5.carEngine.capacity} + ' · ' + ${car5.carEngine.fuelType}"></p>
@@ -96,6 +72,7 @@
             </div>
         </div>
         <div class="image">
+            <a th:href="@{${carUrl6}}"></a>
             <img th:src="@{'/image/' + ${car6.images[0].id}}" >
             <h5 th:text="${car6.brand} + ' ' + ${car6.model} + ' ' + ${car6.carEngine.name}"></h5>
             <p th:text="${car6.yearProduced} + ' · ' + ${car6.mileage} + ' km · ' + ${car6.carEngine.capacity} + ' · ' + ${car6.carEngine.fuelType}"></p>
@@ -107,6 +84,7 @@
     </div>
     <div class="car-list-row row-small">
         <div class="image">
+            <a th:href="@{${carUrl7}}"></a>
             <img th:src="@{'/image/' + ${car7.images[0].id}}" >
             <h5 th:text="${car7.brand} + ' ' + ${car7.model} + ' ' + ${car7.carEngine.name}"></h5>
             <p th:text="${car7.yearProduced} + ' · ' + ${car7.mileage} + ' km · ' + ${car7.carEngine.capacity} + ' · ' + ${car7.carEngine.fuelType}"></p>
@@ -116,6 +94,7 @@
             </div>
         </div>
         <div class="image">
+            <a th:href="@{${carUrl8}}"></a>
             <img th:src="@{'/image/' + ${car8.images[0].id}}" >
             <h5 th:text="${car8.brand} + ' ' + ${car8.model} + ' ' + ${car8.carEngine.name}"></h5>
             <p th:text="${car8.yearProduced} + ' · ' + ${car8.mileage} + ' km · ' + ${car8.carEngine.capacity} + ' · ' + ${car8.carEngine.fuelType}"></p>
@@ -125,6 +104,7 @@
             </div>
         </div>
         <div class="image">
+            <a th:href="@{${carUrl9}}"></a>
             <img th:src="@{'/image/' + ${car9.images[0].id}}" >
             <h5 th:text="${car9.brand} + ' ' + ${car9.model} + ' ' + ${car9.carEngine.name}"></h5>
             <p th:text="${car9.yearProduced} + ' · ' + ${car9.mileage} + ' km · ' + ${car9.carEngine.capacity} + ' · ' + ${car9.carEngine.fuelType}"></p>
@@ -134,6 +114,7 @@
             </div>
         </div>
         <div class="image">
+            <a th:href="@{${carUrl10}}"></a>
             <img th:src="@{'/image/' + ${car10.images[0].id}}" >
             <h5 th:text="${car10.brand} + ' ' + ${car10.model} + ' ' + ${car10.carEngine.name}"></h5>
             <p th:text="${car10.yearProduced} + ' · ' + ${car10.mileage} + ' km · ' + ${car10.carEngine.capacity} + ' · ' + ${car10.carEngine.fuelType}"></p>
@@ -143,6 +124,7 @@
             </div>
         </div>
         <div class="image">
+            <a th:href="@{${carUrl11}}"></a>
             <img th:src="@{'/image/' + ${car11.images[0].id}}" >
             <h5 th:text="${car11.brand} + ' ' + ${car11.model} + ' ' + ${car11.carEngine.name}"></h5>
             <p th:text="${car11.yearProduced} + ' · ' + ${car11.mileage} + ' km · ' + ${car11.carEngine.capacity} + ' · ' + ${car11.carEngine.fuelType}"></p>
@@ -152,6 +134,7 @@
             </div>
         </div>
         <div class="image">
+            <a th:href="@{${carUrl12}}"></a>
             <img th:src="@{'/image/' + ${car12.images[0].id}}" >
             <h5 th:text="${car12.brand} + ' ' + ${car12.model} + ' ' + ${car12.carEngine.name}"></h5>
             <p th:text="${car12.yearProduced} + ' · ' + ${car12.mileage} + ' km · ' + ${car12.carEngine.capacity} + ' · ' + ${car12.carEngine.fuelType}"></p>
@@ -164,67 +147,6 @@
 </div>
 
 
-
-
-
-<div class="container-fluid justify-content-center">
-    <div class="row py-5">
-        <div class="col">
-            <div class="card border-0">
-                <div class="card-body text-center ">
-                    <h2><b>Chcesz widzieć więcej podobnych ogłoszeń?</b></h2>
-                    <p class="pl-0 ml-0 mb-5">Zapisz się do naszego newslettera.</p>
-                    <div class="row text-center justify-content-center">
-                        <div class="col-auto">
-                            <div class="input-group-lg input-group mb-3 "><input id="email-input" type="text" class="form-control" placeholder="Wpisz swój adres e-mail" aria-label="Recipient's username" aria-describedby="button-addon2">
-                                <div class="input-group-append"><button class="btn btn-success" type="button" id="button-addon2"> <b>Zapisz się</b></button></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <hr class="mx-0 px-0">
-    <footer>
-        <div class="row justify-content-around mb-0 pt-5 pb-0 ">
-            <div class=" col-11">
-                <div class="row justify-content-center">
-                    <div class="col-md-3 col-12 font-italic align-items-center mt-md-3 mt-4">
-                        <h5><span> <img th:src="@{/img/icon.ico}" class="img-fluid mb-1 "></span><b class="text-dark"> Car<span class="text-muted"> Shop</span></b></h5>
-                        <p class="social mt-md-3 mt-2"> <span><i class="fa fa-facebook " aria-hidden="true"></i></span> <span><i class="fa fa-linkedin" aria-hidden="true"></i></span> <span><i class="fa fa-twitter" aria-hidden="true"></i></span> </p> <small class="copy-rights cursor-pointer">&#9400; 2024 Carshop Digital Technologies</small><br> <small>Copyright.All Rights Reserved. </small>
-                    </div>
-                    <div class="col-md-3 col-12 my-sm-0 mt-5">
-                        <ul class="list-unstyled">
-                            <li class="mt-md-3 mt-4">Carshop</li>
-                            <li>Intergrated Security Platform</li>
-                            <li>Core Features</li>
-                            <li>Product Features</li>
-                            <li>Pricing</li>
-                        </ul>
-                    </div>
-                    <div class="col-md-3 col-12 my-sm-0 mt-5">
-                        <ul class="list-unstyled">
-                            <li class="mt-md-3 mt-4">Usługi i narzędzia</li>
-                            <li>Intergrated Security Platform</li>
-                            <li>Core Features</li>
-                            <li>Product Features</li>
-                            <li>Pricing</li>
-                        </ul>
-                    </div>
-                    <div class="col-xl-auto col-md-3 col-12 my-sm-0 mt-5">
-                        <ul class="list-unstyled">
-                            <li class="mt-md-3 mt-4">Pobierz aplikacje</li>
-                            <li><img th:src="@{/img/googlePlay.png}" class="footer-img"></li>
-                            <li><img th:src="@{/img/appleStore.png}" class="footer-img"></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-</div>
-
-
+<div th:replace="~{base :: footer}"></div>
 </body>
 </html>

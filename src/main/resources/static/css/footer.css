@@ -95,6 +95,7 @@ footer li:first-child {
 
  footer {
      color: #757575 !important
+     padding-bottom: 50px !important;
  }
 
  .social {
