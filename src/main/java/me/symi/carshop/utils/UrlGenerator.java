@@ -12,7 +12,7 @@ public class UrlGenerator {
         int horsePower = theCar.getCarEngine().getHorsePower();
         String idHash = null;
         try {
-            idHash = TwoWayEncryption.encrypt(String.valueOf(theCar.getId()));
+            idHash = TwoWayEncryption.encrypt(theCar.getId());
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

@@ -71,7 +71,7 @@ public class CarController {
     ) {
         Car theCar = null;
         try {
-            theCar = appService.findCarById(Integer.parseInt(TwoWayEncryption.decrypt(idHash)));
+            theCar = appService.findCarById(TwoWayEncryption.decrypt(idHash));
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
