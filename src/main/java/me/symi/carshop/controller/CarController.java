@@ -1,12 +1,17 @@
 package me.symi.carshop.controller;
 
 import me.symi.carshop.entity.Car;
+import me.symi.carshop.entity.Customer;
 import me.symi.carshop.entity.ImageEntity;
 import me.symi.carshop.service.AppService;
 import me.symi.carshop.utils.TwoWayEncryption;
 import me.symi.carshop.utils.UrlGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -32,14 +37,26 @@ public class CarController {
     }*/
 
     @GetMapping("/")
-    public String showImages(Model model) {
+    public String showImages(@AuthenticationPrincipal UserDetails userDetails, Model model) {
         List<Car> randomCars = appService.getTwentyRandomCars();
         for(int i = 1; i <= 12; i++) {
             Car tempCar = randomCars.get(i - 1);
             model.addAttribute("car" + i, tempCar);
             model.addAttribute("carUrl" + i, UrlGenerator.getCarUrl(tempCar));
         }
+        /*Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if(userDetails != null) {
+            String email = authentication.getName();
+            Customer customer = appService.findCustomerByEmail(email);
+            model.addAttribute("email", customer.getEmail());
+        }*/
+
         return "car-list";
+    }
+
+    @GetMapping("/osobowe/nowe-ogloszenie")
+    public String showNewCarForm() {
+        return "car-form";
     }
 
 

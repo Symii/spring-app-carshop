@@ -21,7 +21,10 @@
 
 
             <li class="dropdown">
-                <a href="#" class="dropbtn"><i class="bi bi-person"></i> <label th:text="${#authentication.name}"></label> <i class="bi bi-caret-down-fill"></i></a>
+                <a href="#" class="dropbtn"><i class="bi bi-person"></i>
+                    <label th:if="${#authentication.name != 'anonymousUser'}" th:text="${#authentication.name}"></label>
+                    <label th:unless="${#authentication.name != 'anonymousUser'}" th:text="${'Anonimowy użytkownik'}"></label>
+                    <i class="bi bi-caret-down-fill"></i></a>
                 <div class="dropdown-content">
                     <label>Moje konto</label>
                     <a href="#">Ogłoszenia</a>
@@ -32,42 +35,45 @@
                     <a href="#">Ogłoszenia</a>
                     <a href="#">Wyszukiwania</a>
                     <br>
-                    <a th:href="@{/logout}">Wyloguj</a>
+                    <a th:if="${email != null}" th:href="@{/logout}">Wyloguj się</a>
+                    <a th:unless="${email != null}" th:href="@{/login}">Zaloguj się</a>
                 </div>
             </li>
 
-            <li><a href="#" class="primary-button"><i class="bi bi-plus"></i> Zacznij sprzedawać</a></li>
+            <li><a th:href="@{/osobowe/nowe-ogloszenie}" class="primary-button"><i class="bi bi-plus"></i> Zacznij sprzedawać</a></li>
         </ul>
     </nav>
 </header>
 
 
-
-<div th:fragment="footer" class="container-fluid justify-content-center">
-    <div class="row py-5">
-        <div class="col">
-            <div class="card border-0">
-                <div class="card-body text-center ">
-                    <h2><b>Chcesz widzieć więcej podobnych ogłoszeń?</b></h2>
-                    <p class="pl-0 ml-0 mb-5">Zapisz się do naszego newslettera.</p>
-                    <div class="row text-center justify-content-center">
-                        <div class="col-auto">
-                            <div class="input-group-lg input-group mb-3 "><input id="email-input" type="text" class="form-control" placeholder="Wpisz swój adres e-mail" aria-label="Recipient's username" aria-describedby="button-addon2">
-                                <div class="input-group-append"><button class="btn btn-success" type="button" id="button-addon2"> <b>Zapisz się</b></button></div>
-                            </div>
+<div th:fragment="newsletter" class="row py-5">
+    <div class="col newsletter-form">
+        <div class="card border-0">
+            <div class="card-body text-center ">
+                <h2><b>Chcesz widzieć więcej podobnych ogłoszeń?</b></h2>
+                <p class="pl-0 ml-0 mb-5">Zapisz się do naszego newslettera.</p>
+                <div class="row text-center justify-content-center">
+                    <div class="col-auto">
+                        <div class="input-group-lg input-group mb-3 ">
+                            <input th:if="${#authentication.name != 'anonymousUser'}" th:value="${#authentication.name}" id="email-input" type="text" class="form-control" placeholder="Wpisz swój adres e-mail" aria-label="Recipient's username" aria-describedby="button-addon2">
+                            <input th:unless="${#authentication.name != 'anonymousUser'}" id="email-input" type="text" class="form-control" placeholder="Wpisz swój adres e-mail" aria-label="Recipient's username" aria-describedby="button-addon2">
+                            <div class="input-group-append"><button class="btn btn-success" type="button" id="button-addon2"> <b>Zapisz się</b></button></div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <hr class="mx-0 px-0">
+</div>
+<hr class="mx-0 px-0">
+<div th:fragment="footer" class="container-fluid justify-content-center">
+
     <footer>
         <div class="row justify-content-around mb-0 pt-5 pb-0 ">
             <div class=" col-11">
                 <div class="row justify-content-center">
                     <div class="col-md-3 col-12 font-italic align-items-center mt-md-3 mt-4">
-                        <h5><span> <img th:src="@{/img/icon.ico}" class="img-fluid mb-1 "></span><b class="text-dark"> Car<span class="text-muted"> Shop</span></b></h5>
+                        <h5><a th:href="@{/}"><span> <img th:src="@{/img/icon.ico}" class="img-fluid mb-1 "></span><b class="text-dark"> Car<span class="text-muted"> Shop</span></b></a></h5>
                         <p class="social mt-md-3 mt-2"> <span><i class="fa fa-facebook " aria-hidden="true"></i></span> <span><i class="fa fa-linkedin" aria-hidden="true"></i></span> <span><i class="fa fa-twitter" aria-hidden="true"></i></span> </p> <small class="copy-rights cursor-pointer">&#9400; 2024 Carshop Digital Technologies</small><br> <small>Copyright.All Rights Reserved. </small>
                     </div>
                     <div class="col-md-3 col-12 my-sm-0 mt-5">
@@ -75,23 +81,25 @@
                             <li class="mt-md-3 mt-4">Carshop</li>
                             <li>Pomoc</li>
                             <li>Kontakt</li>
-                            <li>Regulamin</li>
-                            <li>Cennik</li>
+                            <li>Regulamin dla Klientów Indywidualnych</li>
+                            <li>Regulamin dla Klientów Biznesowych</li>
                         </ul>
                     </div>
                     <div class="col-md-3 col-12 my-sm-0 mt-5">
                         <ul class="list-unstyled">
-                            <li class="mt-md-3 mt-4">Usługi i narzędzia</li>
+                            <li class="mt-md-3 mt-4">Przydatne informacje</li>
                             <li>Umowa kupna sprzedaży</li>
+                            <li>Cennik dla Klientów Indywidualnych</li>
+                            <li>Cennik dla Klientów Biznesowych</li>
+                            <li>Mapa kategorii</li>
                             <li>Historia pojazdu</li>
-                            <li>Product Features</li>
                         </ul>
                     </div>
                     <div class="col-xl-auto col-md-3 col-12 my-sm-0 mt-5">
                         <ul class="list-unstyled">
                             <li class="mt-md-3 mt-4">Pobierz aplikacje</li>
-                            <li><img th:src="@{/img/googlePlay.png}" class="footer-img"></li>
-                            <li><img th:src="@{/img/appleStore.png}" class="footer-img"></li>
+                            <li><a href="https://play.google.com/store/apps" target="_blank"><img th:src="@{/img/googlePlay.png}" class="footer-img"></a></li>
+                            <li><a href="https://www.apple.com/pl/app-store/" target="_blank"><img th:src="@{/img/appleStore.png}" class="footer-img"></a></li>
                         </ul>
                     </div>
                 </div>

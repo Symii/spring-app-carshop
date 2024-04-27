@@ -41,6 +41,17 @@ width: calc(17% - 20px);
     margin-bottom: 5px;
 }
 
+.row-small h5 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 180px;
+}
+
+.row-small p {
+    text-align: left !important;
+}
+
 .image p {
     margin-bottom: 5px;
 }

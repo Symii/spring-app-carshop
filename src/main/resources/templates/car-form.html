@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Dodaj nowe ogłoszenie sprzedaży pojazdu</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/css/navigation.css}">
+    <link rel="stylesheet" th:href="@{/css/footer.css}">
+    <link rel="stylesheet" th:href="@{/css/car-form.css}">
+    <link rel="icon" type="image/x-icon" th:href="@{/img/icon.ico}">
+</head>
+<body>
+<div th:replace="~{base :: navigation}"></div>
+
+
+<div class="col-12 col-sm-10 col-md-7 offset-sm-1 mt-5">
+    <h2 class="text-left mb-4">Stwórz ogłoszenie</h2>
+    <form class="osobwe-form" action="submit.php" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="rodzaj_pojazdu">Rodzaj pojazdu:</label>
+            <select class="form-control" name="rodzaj_pojazdu" id="rodzaj_pojazdu" disabled>
+                <option value="osobowe">Osobowe</option>
+                <option value="dostawcze">Dostawcze</option>
+                <option value="motocykle">Motocykle</option>
+                <option value="ciezarowe">Ciężarowe</option>
+                <option value="przyczepy">Przyczepy</option>
+                <option value="budowlane">Budowlane</option>
+                <option value="rolnicze">Rolnicze</option>
+            </select>
+        </div>
+
+        <h3>Dane pojazdu</h3>
+        <h4>Cechy główne</h4>
+
+        <div class="form-group">
+            <div class="wrapper">
+                <label>Uszkodzony</label>
+                <input type="radio" name="uszkodzony" id="uszkodzony_nie" value="nie">
+                <input type="radio" name="uszkodzony" id="uszkodzony_tak" value="tak">
+
+                <label for="uszkodzony_nie" class="option option-1">
+                    <span>nie</span>
+                </label>
+                <label for="uszkodzony_tak" class="option option-2">
+                    <span>tak</span>
+                </label>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="form-group">
+            <div class="wrapper">
+                <label>Importowany</label>
+                <input type="radio" name="importowany" id="importowany_nie" value="nie">
+                <input type="radio" name="importowany" id="importowany_tak" value="tak">
+
+                <label for="importowany_nie" class="option option-1">
+                    <span>nie</span>
+                </label>
+                <label for="importowany_tak" class="option option-2">
+                    <span>tak</span>
+                </label>
+            </div>
+        </div>
+
+        <hr>
+
+        <h4>Informacje podstawowe</h4>
+
+        <!-- Pozostałe pola formularza -->
+
+        <div class="input-wrapper">
+            <div class="form-group">
+                <label for="vin">Numer VIN:</label>
+                <div class="mileage-input">
+                    <input type="text" class="form-control" name="vin" id="vin" placeholder="np. 1FTPW14V88FC22108">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="przebieg">Przebieg:</label>
+                <div class="mileage-input">
+                    <input type="text" class="form-control" name="przebieg" id="przebieg" placeholder="np. 100 000">
+                    <span>km</span>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="input-wrapper">
+            <div class="form-group">
+                <label for="nr_rejestracyjny">Numer rejestracyjny pojazdu:</label>
+                <div class="mileage-input">
+                    <input type="text" class="form-control" name="nr_rejestracyjny" id="nr_rejestracyjny" placeholder="np. WA6642E">
+                </div>
+            </div>
+
+            <div></div>
+        </div>
+
+        <h4>Dane techniczne</h4>
+
+        <div class="input-wrapper">
+            <div class="form-group">
+                <label for="rok_produkcji">Rok produkcji:</label>
+                <div class="mileage-input">
+                    <select id="rok_produkcji" class="form-control" name="rok_produkcji">
+                        <option value="">Wybierz...</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="marka">Marka pojazdu:</label>
+                <select name="marka" id="marka" class="form-control">
+                    <option value="">Wybierz markę...</option>
+                    <option value="Acura">Acura</option>
+                    <option value="Alfa Romeo">Alfa Romeo</option>
+                    <option value="Aston Martin">Aston Martin</option>
+                    <option value="Audi">Audi</option>
+                    <option value="Bentley">Bentley</option>
+                    <option value="BMW">BMW</option>
+                    <option value="Bugatti">Bugatti</option>
+                    <option value="Buick">Buick</option>
+                    <option value="Cadillac">Cadillac</option>
+                    <option value="Chevrolet">Chevrolet</option>
+                    <option value="Chrysler">Chrysler</option>
+                    <option value="Citroen">Citroen</option>
+                    <option value="Dodge">Dodge</option>
+                    <option value="Ferrari">Ferrari</option>
+                    <option value="Fiat">Fiat</option>
+                    <option value="Ford">Ford</option>
+                    <option value="Genesis">Genesis</option>
+                    <option value="GMC">GMC</option>
+                    <option value="Honda">Honda</option>
+                    <option value="Hyundai">Hyundai</option>
+                    <option value="Infiniti">Infiniti</option>
+                    <option value="Jaguar">Jaguar</option>
+                    <option value="Jeep">Jeep</option>
+                    <option value="Kia">Kia</option>
+                    <option value="Lamborghini">Lamborghini</option>
+                    <option value="Land Rover">Land Rover</option>
+                    <option value="Lexus">Lexus</option>
+                    <option value="Lincoln">Lincoln</option>
+                    <option value="Lotus">Lotus</option>
+                    <option value="Maserati">Maserati</option>
+                    <option value="Mazda">Mazda</option>
+                    <option value="McLaren">McLaren</option>
+                    <option value="Mercedes-Benz">Mercedes-Benz</option>
+                    <option value="Mini">Mini</option>
+                    <option value="Mitsubishi">Mitsubishi</option>
+                    <option value="Nissan">Nissan</option>
+                    <option value="Pagani">Pagani</option>
+                    <option value="Peugeot">Peugeot</option>
+                    <option value="Porsche">Porsche</option>
+                    <option value="Ram">Ram</option>
+                    <option value="Renault">Renault</option>
+                    <option value="Rolls-Royce">Rolls-Royce</option>
+                    <option value="Saab">Saab</option>
+                    <option value="Subaru">Subaru</option>
+                    <option value="Suzuki">Suzuki</option>
+                    <option value="Tesla">Tesla</option>
+                    <option value="Toyota">Toyota</option>
+                    <option value="Volkswagen">Volkswagen</option>
+                    <option value="Volvo">Volvo</option>
+                </select>
+            </div>
+
+        </div>
+
+
+        <div class="input-wrapper">
+            <div class="form-group">
+                <label for="model">Model pojazdu:</label>
+                <input type="text" class="form-control" name="model" id="model" placeholder="np. A4 B9">
+            </div>
+            <div class="form-group">
+                <label for="paliwo">Rodzaj paliwa:</label>
+                <select name="paliwo" id="paliwo" class="form-control">
+                    <option value="Benzyna">Benzyna</option>
+                    <option value="Benzyna+LPG">Benzyna+LPG</option>
+                    <option value="Diesel">Diesel</option>
+                    <option value="Elektryczny">Elektryczny</option>
+                    <option value="Hybryda">Hybryda</option>
+                    <option value="Wodór">Wodór</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="input-wrapper">
+            <div class="form-group">
+                <label for="moc">Moc:</label>
+                <div class="mileage-input">
+                    <input type="text" class="form-control" name="moc" id="moc" placeholder="np. 150">
+                    <span>KM</span>
+                </div>
+
+            </div>
+
+            <div class="form-group">
+                <label for="pojemnosc_skokowa">Pojemność skokowa:</label>
+                <div class="mileage-input">
+                    <input type="text" class="form-control" name="pojemnosc_skokowa" id="pojemnosc_skokowa" placeholder="np. 1 395">
+                    <span>cm3</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="input-wrapper">
+            <div class="form-group">
+                <label for="skrzynia_biegow">Skrzynia biegów:</label>
+                <select name="skrzynia_biegow" id="skrzynia_biegow" class="form-control">
+                    <option value="">Wybierz</option>
+                    <option value="Automatyczna">Automatyczna</option>
+                    <option value="Manualna">Manualna</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="typ_nadwozia">Typ nadwozia:</label>
+                <select name="typ_nadwozia" id="typ_nadwozia" class="form-control">
+                    <option value="">Wybierz</option>
+                    <option value="Auta małe">Auta małe</option>
+                    <option value="Auta miejskie">Auta miejskie</option>
+                    <option value="Coupe">Coupe</option>
+                    <option value="Kabriolet">Kabriolet</option>
+                    <option value="Kombi">Kombi</option>
+                    <option value="Kompakt">Kompakt</option>
+                    <option value="Minivan">Minivan</option>
+                    <option value="Sedan">Sedan</option>
+                    <option value="SUV">SUV</option>
+                </select>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label for="kolor">Kolor:</label>
+            <input type="text" class="form-control" name="kolor" id="kolor">
+        </div>
+
+        <h4>Zdjęcia <span>(0/10)</span></h4>
+        <div class="form-group">
+            <input type="file" class="form-control-file" name="zdjecia[]" id="zdjecia" multiple>
+        </div>
+
+        <br><br><br>
+
+        <h4>Opis pojazdu</h4>
+
+        <div class="form-group">
+            <label for="tytul_ogloszenia">Tytuł ogłoszenia:</label>
+            <input type="text" class="form-control" name="tytul_ogloszenia" id="tytul_ogloszenia" placeholder="np. pierwszy właściciel, stan idealny, nowy akumulator">
+        </div>
+
+        <div class="form-group">
+            <label for="opis">Opis:</label>
+            <textarea class="form-control" name="opis" id="opis" rows="4"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="cena">Cena brutto:</label>
+            <input type="text" class="form-control" name="cena" id="cena" placeholder="np. 12 000">
+        </div>
+
+        <button type="submit" class="contact-button"><i class="bi bi-envelope-check"></i> Dodaj ogłoszenie</button>
+    </form>
+</div>
+
+<script>
+    var currentYear = new Date().getFullYear();
+    var dropdown = document.getElementById("rok_produkcji");
+    for (var year = currentYear; year >= 1980; year--) {
+        var option = document.createElement("option");
+        option.text = year;
+        option.value = year;
+        dropdown.add(option);
+    }
+</script>
+
+<div th:replace="~{base :: footer}"></div>
+</body>
+</html>

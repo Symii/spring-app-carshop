@@ -1,6 +1,7 @@
 package me.symi.carshop.security;
 
 import me.symi.carshop.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -11,6 +12,7 @@ import org.springframework.security.config.annotation.web.configurers.LogoutConf
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+import org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler;
 
 @Configuration
 public class SecurityConfig {
@@ -38,8 +40,11 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.POST, "/api/cars").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.PUT, "/api/cars").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.DELETE, "/api/cars/**").hasRole("ADMIN")
-                        // .requestMatchers(HttpMethod.GET, "/car/**").permitAll()
+
+                        .requestMatchers(HttpMethod.GET, "/").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/osobowe/oferta/**").permitAll()
                         .requestMatchers(HttpMethod.GET, "/image/**").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/img/**").permitAll()
                         .requestMatchers(HttpMethod.GET, "/css/**").permitAll()
                         .requestMatchers(HttpMethod.POST, "/uploadImage").permitAll()
                         .anyRequest().authenticated()
@@ -48,9 +53,18 @@ public class SecurityConfig {
                 form
                         .loginPage("/login")
                         .loginProcessingUrl("/authenticateTheUser")
-                        .successHandler(customAuthenticationSuccessHandler)
+                        //.successHandler(customAuthenticationSuccessHandler)
+                        .successHandler(savedRequestAwareAuthenticationSuccessHandler())
                         .permitAll()
-        ).logout(LogoutConfigurer::permitAll)
+        ).logout(customizer ->
+                        customizer
+                                .logoutSuccessUrl("/login?logout")
+                                .invalidateHttpSession(true)
+                                .deleteCookies("JSESSIONID")
+                                .permitAll()
+
+                )
+                .logout(LogoutConfigurer::permitAll)
                 .exceptionHandling(config ->
                         config
                                 .accessDeniedPage("/access-denied")
@@ -62,6 +76,12 @@ public class SecurityConfig {
         return http.build();
     }
 
+    @Autowired
+    public SavedRequestAwareAuthenticationSuccessHandler savedRequestAwareAuthenticationSuccessHandler() {
+        SavedRequestAwareAuthenticationSuccessHandler handler = new SavedRequestAwareAuthenticationSuccessHandler();
+        handler.setDefaultTargetUrl("/"); // Ustaw docelową stronę na "/"
+        return handler;
+    }
 
 
 }

@@ -53,8 +53,8 @@ footer li {
      margin-bottom: 10px
  }
 
- input {
-     border: 2px solid #E74783 !important
+.newsletter-form input {
+     border: 2px solid #E74783 !important;
  }
 
  .input-group-lg>.custom-select,
@@ -62,17 +62,17 @@ footer li {
      height: calc(40px + (48 - 40) * ((100vw - 360px) / (1600 - 360))) !important
  }
 
- input::-webkit-input-placeholder {
+.newsletter-form input::-webkit-input-placeholder {
      padding-left: 5px !important;
      transform: translate3d(0, -4px, 0)
  }
 
- input::placeholder {
+.newsletter-form input::placeholder {
      vertical-align: middle !important;
      font-size: calc(12px + (14 - 12) * ((100vw - 360px) / (1600 - 360))) !important
  }
 
- input:focus {
+.newsletter-form input:focus {
      -moz-box-shadow: none !important;
      -webkit-box-shadow: none !important;
      box-shadow: none !important;
