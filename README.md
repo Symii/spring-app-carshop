@@ -34,3 +34,7 @@ Aplikacja została zbudowana w oparciu o framework **Spring Boot**.
      http://localhost:80
 ![image](https://github.com/Symii/spring-app-carshop/assets/46313859/710834ef-b62a-4243-b5b6-ec3483def4a6)
 ![image](https://github.com/Symii/spring-app-carshop/assets/46313859/197bfa75-8582-4bc0-bb5c-5c14d99bdd38)
+![image](https://github.com/Symii/spring-app-carshop/assets/46313859/581738c4-b0f0-4b0c-84b8-c57df4a49b49)
+![image](https://github.com/Symii/spring-app-carshop/assets/46313859/a0a75c67-7fc4-40f2-89c0-12d114721202)
+
+
