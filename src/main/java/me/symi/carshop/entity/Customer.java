@@ -1,5 +1,6 @@
 package me.symi.carshop.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.Collection;
@@ -17,15 +18,20 @@ public class Customer {
     @Column(name = "last_name")
     private String lastName;
     @Column(name = "adres")
+    @JsonIgnore
     private String adres;
     @Column(name = "phone_number")
+    @JsonIgnore
     private String phoneNumber;
     @Column(name = "email")
     private String email;
+    @JsonIgnore
     @Column(name = "password")
     private String password;
+    @JsonIgnore
     @Column(name = "enabled")
     private boolean enabled;
+    @JsonIgnore
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(name = "users_roles",
             joinColumns = @JoinColumn(name = "user_id"),

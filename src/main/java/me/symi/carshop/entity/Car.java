@@ -34,7 +34,7 @@ public class Car {
     private boolean damaged;
     @Column(name = "description")
     private String description;
-    @JsonIgnore
+
     @OneToMany(mappedBy = "car", cascade = {CascadeType.DETACH, CascadeType.MERGE,
             CascadeType.PERSIST, CascadeType.REFRESH},
             fetch = FetchType.EAGER)

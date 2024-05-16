@@ -3,6 +3,7 @@ package me.symi.carshop.service;
 import me.symi.carshop.entity.*;
 import me.symi.carshop.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -35,6 +36,11 @@ public class AppServiceImpl implements AppService {
     @Override
     public List<Car> findAllCars() {
         return carRepository.findAll();
+    }
+
+    @Override
+    public List<Car> findAllCarsPageable(Pageable pageable) {
+        return carRepository.findAll(pageable).stream().toList();
     }
 
     @Override

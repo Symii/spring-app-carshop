@@ -79,15 +79,9 @@ public class CarController {
         return "car-details";
     }
 
-    @GetMapping(value = "/image/{id}", produces = MediaType.IMAGE_JPEG_VALUE)
+    /*@GetMapping(value = "/image/{id}", produces = MediaType.IMAGE_JPEG_VALUE)
     public @ResponseBody byte[] getImage(@PathVariable("id") int id) {
         return appService.findImageById(id).getImageData();
-    }
-
-
-    @GetMapping("/uploadImage")
-    public String uploadImage() {
-        return "image-upload-form";
     }
 
     @PostMapping("/uploadImage")
@@ -106,5 +100,14 @@ public class CarController {
             return "redirect:/cars";
         }
     }
+
+     */
+
+
+    @GetMapping("/uploadImage")
+    public String uploadImage() {
+        return "image-upload-form";
+    }
+
 
 }

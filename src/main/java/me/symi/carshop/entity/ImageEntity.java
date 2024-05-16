@@ -1,5 +1,6 @@
 package me.symi.carshop.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 @Entity
@@ -9,12 +10,12 @@ public class ImageEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "car_id")
     private Car car;
-    @Lob
-    @Column(name = "image", columnDefinition = "LONGBLOB")
-    private byte[] imageData;
+    @Column(name = "image_url")
+    private String imageUrl;
 
     public int getId() {
         return id;
@@ -32,12 +33,12 @@ public class ImageEntity {
         this.car = car;
     }
 
-    public byte[] getImageData() {
-        return imageData;
+    public String getImageUrl() {
+        return imageUrl;
     }
 
-    public void setImageData(byte[] imageData) {
-        this.imageData = imageData;
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 }
 

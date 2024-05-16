@@ -1,12 +1,14 @@
 package me.symi.carshop.service;
 
 import me.symi.carshop.entity.*;
+import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 
 public interface AppService {
 
     List<Car> findAllCars();
+    List<Car> findAllCarsPageable(Pageable pageable);
     Car findCarById(int theId);
     List<Car> getTwentyRandomCars();
     Car saveCar(Car theCar);
