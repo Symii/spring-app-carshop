@@ -1,5 +1,7 @@
 package me.symi.carshop.service;
 
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.Query;
 import me.symi.carshop.entity.*;
 import me.symi.carshop.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,11 +21,13 @@ public class AppServiceImpl implements AppService {
     private final OrderRepository orderRepository;
     private final ReviewRepository reviewRepository;
     private final ImageRepository imageRepository;
+    private final EntityManager entityManager;
 
     @Autowired
-    public AppServiceImpl(CarRepository carRepository, CarEngineRepository carEngineRepository,
+    public AppServiceImpl(EntityManager entityManager, CarRepository carRepository, CarEngineRepository carEngineRepository,
                       CustomerRepository customerRepository, OrderRepository orderRepository,
                       ReviewRepository reviewRepository, ImageRepository imageRepository) {
+        this.entityManager = entityManager;
         this.carRepository = carRepository;
         this.carEngineRepository = carEngineRepository;
         this.customerRepository = customerRepository;
@@ -33,6 +37,16 @@ public class AppServiceImpl implements AppService {
     }
 
 
+    @Override
+    public List<Car> findCarsByFilter(String sql) {
+        Query query = entityManager.createNativeQuery(sql, Car.class);
+        return query.getResultList();
+    }
+
+    @Override
+    public List<Car> findCarsByKeyword(String theKeyword) {
+        return carRepository.findCarsByKeyword(theKeyword);
+    }
     @Override
     public List<Car> findAllCars() {
         return carRepository.findAll();

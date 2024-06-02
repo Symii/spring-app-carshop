@@ -14,4 +14,7 @@ public interface CarRepository extends JpaRepository<Car, Integer> {
     int findRandomCarId();
     @Query("SELECT c FROM Car c ORDER BY RAND() LIMIT 12")
     List<Car> findTwentyRandomCars();
+
+    @Query("SELECT c FROM Car c WHERE brand LIKE %:keyword% OR color LIKE %:keyword% OR description LIKE %:keyword%")
+    List<Car> findCarsByKeyword(@Param("keyword") String keyword);
 }

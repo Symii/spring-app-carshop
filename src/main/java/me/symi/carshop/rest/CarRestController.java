@@ -27,6 +27,38 @@ public class CarRestController {
         return appService.findAllCarsPageable(pageable);
     }
 
+    @GetMapping("/cars/search/findByKeyword")
+    public List<Car> findByNameContaining(@RequestParam String keyword) {
+        return appService.findCarsByKeyword(keyword);
+    }
+
+    @GetMapping("/cars/filter")
+    public List<Car> findCarsWithFilter(@RequestParam(defaultValue = "0") int page,
+                                        @RequestParam(defaultValue = "10") int size,
+                                        @RequestParam(required = false) String brand,
+                                        @RequestParam(required = false) String body,
+                                        @RequestParam(required = false) String priceFrom,
+                                        @RequestParam(required = false) String priceTo,
+                                        @RequestParam(required = false) String yearProducedFrom,
+                                        @RequestParam(required = false) String fuelType)
+    {
+        String sql = "SELECT * FROM Car c WHERE 1=1";
+        if(brand != null && !brand.equals("any")) {
+            sql += " AND c.brand LIKE \"%"+brand+"%\"";
+        }
+        // TODO: body
+        if(priceFrom != null) {
+            sql += " AND c.price > " + priceFrom;
+        }
+        if(priceTo != null) {
+            sql += " AND c.price < " + priceTo;
+        }
+        // TODO: yearFrom
+        // TODO: fuelType
+        sql += " LIMIT " + size;
+        return appService.findCarsByFilter(sql);
+    }
+
     @GetMapping("/cars/{carId}")
     public Car getSingleCar(@PathVariable int carId) {
         Car car = appService.findCarById(carId);

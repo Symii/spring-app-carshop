@@ -7,6 +7,8 @@ import java.util.List;
 
 public interface AppService {
 
+    List<Car> findCarsByFilter(String sql);
+    List<Car> findCarsByKeyword(String theKeyword);
     List<Car> findAllCars();
     List<Car> findAllCarsPageable(Pageable pageable);
     Car findCarById(int theId);
