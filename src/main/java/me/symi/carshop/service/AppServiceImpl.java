@@ -18,20 +18,18 @@ public class AppServiceImpl implements AppService {
     private final CarRepository carRepository;
     private final CarEngineRepository carEngineRepository;
     private final CustomerRepository customerRepository;
-    private final OrderRepository orderRepository;
     private final ReviewRepository reviewRepository;
     private final ImageRepository imageRepository;
     private final EntityManager entityManager;
 
     @Autowired
     public AppServiceImpl(EntityManager entityManager, CarRepository carRepository, CarEngineRepository carEngineRepository,
-                      CustomerRepository customerRepository, OrderRepository orderRepository,
+                      CustomerRepository customerRepository,
                       ReviewRepository reviewRepository, ImageRepository imageRepository) {
         this.entityManager = entityManager;
         this.carRepository = carRepository;
         this.carEngineRepository = carEngineRepository;
         this.customerRepository = customerRepository;
-        this.orderRepository = orderRepository;
         this.reviewRepository = reviewRepository;
         this.imageRepository = imageRepository;
     }
@@ -55,6 +53,11 @@ public class AppServiceImpl implements AppService {
     @Override
     public List<Car> findAllCarsPageable(Pageable pageable) {
         return carRepository.findAll(pageable).stream().toList();
+    }
+
+    @Override
+    public List<Car> findTwentyRandomCars() {
+        return carRepository.findTwentyRandomCars();
     }
 
     @Override
@@ -149,35 +152,6 @@ public class AppServiceImpl implements AppService {
     @Override
     public void deleteCustomerById(int theId) {
         customerRepository.deleteById(theId);
-    }
-
-    @Override
-    public List<Order> findAllOrders() {
-        return orderRepository.findAll();
-    }
-
-    @Override
-    public Order findOrderById(int theId) {
-        Optional<Order> orderOptional = orderRepository.findById(theId);
-
-        Order order = null;
-        if(orderOptional.isPresent()) {
-            order = orderOptional.get();
-        } else {
-            throw new RuntimeException("Did not find order id - " + theId);
-        }
-
-        return order;
-    }
-
-    @Override
-    public Order saveOrder(Order theOrder) {
-        return orderRepository.save(theOrder);
-    }
-
-    @Override
-    public void deleteOrderById(int theId) {
-        orderRepository.deleteById(theId);
     }
 
     @Override

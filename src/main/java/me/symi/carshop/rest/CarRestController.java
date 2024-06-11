@@ -1,6 +1,9 @@
 package me.symi.carshop.rest;
 
+import me.symi.carshop.dto.Annouance;
+import me.symi.carshop.dto.AnnouanceResponse;
 import me.symi.carshop.entity.Car;
+import me.symi.carshop.service.AnnouanceService;
 import me.symi.carshop.service.AppService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
@@ -15,16 +18,29 @@ import java.util.List;
 public class CarRestController {
 
     private AppService appService;
+    private AnnouanceService annouanceService;
 
     @Autowired
-    public CarRestController(AppService appService) {
+    public CarRestController(AppService appService, AnnouanceService annouanceService) {
         this.appService = appService;
+        this.annouanceService = annouanceService;
+    }
+
+    @PostMapping("/annouance/new")
+    public AnnouanceResponse addNewAnnouance(@RequestBody Annouance annouance) {
+        AnnouanceResponse annouanceResponse = annouanceService.addAnnouance(annouance);
+        return annouanceResponse;
     }
 
     @GetMapping("/cars")
     public List<Car> printAllCars(@RequestParam(defaultValue = "12") int maxRows) {
         Pageable pageable = PageRequest.of(0, maxRows);
         return appService.findAllCarsPageable(pageable);
+    }
+
+    @GetMapping("/cars/random")
+    public List<Car> printRandomCars() {
+        return appService.findTwentyRandomCars();
     }
 
     @GetMapping("/cars/search/findByKeyword")

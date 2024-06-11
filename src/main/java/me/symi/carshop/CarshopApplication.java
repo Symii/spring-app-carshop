@@ -60,15 +60,6 @@ public class CarshopApplication {
 		System.out.println("Done.");
 	}
 
-	private void createOrder(AppService appService) {
-		Customer customer = appService.findCustomerById(1);
-		Car car = appService.findCarById(1);
-		Order order = new Order(customer, car);
-		System.out.println("Creating new order....");
-		appService.saveOrder(order);
-		System.out.println("Done.");
-	}
-
 	private void addNewCustomer(AppService appService) {
 		String hash = "$2a$12$/vLeO2WkzFQDF3l6UbqlaewDEAw.k.np5dh0SWi7CRD9xOlFexRUe"; // test123
 		Customer temp1 = new Customer("Anna","Kowalska","Warszawa Mokotow 55","321234764","anna@gmail.com",hash);

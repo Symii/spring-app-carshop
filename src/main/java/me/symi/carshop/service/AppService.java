@@ -7,6 +7,7 @@ import java.util.List;
 
 public interface AppService {
 
+    List<Car> findTwentyRandomCars();
     List<Car> findCarsByFilter(String sql);
     List<Car> findCarsByKeyword(String theKeyword);
     List<Car> findAllCars();
@@ -22,10 +23,6 @@ public interface AppService {
     Customer findCustomerByEmail(String email);
     Customer saveCustomer(Customer theCustomer);
     void deleteCustomerById(int theId);
-    List<Order> findAllOrders();
-    Order findOrderById(int theId);
-    Order saveOrder(Order theOrder);
-    void deleteOrderById(int theId);
     List<Review> findAllReviews();
     Review findReviewById(int theId);
     Review saveReview(Review theReview);

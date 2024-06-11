@@ -1,6 +1,7 @@
 package me.symi.carshop.entity;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.sql.Timestamp;
 import java.time.Instant;
@@ -22,6 +23,7 @@ public class CarEngine {
     @Column(name = "fuel_type")
     private String fuelType;
     @Column(name = "created_at")
+    @CreationTimestamp
     private Timestamp createdAt;
 
     public CarEngine() {
