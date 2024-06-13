@@ -40,6 +40,7 @@ Aplikacja została zbudowana w oparciu o framework **Spring Boot**.
 4. **Przeglądanie:** Otwórz przeglądarkę internetową i przejdź pod adres.
     ```bash
      http://localhost:80/api/cars
+5. **Frontend:** [Teraz możesz uruchomić projekt Angular](https://github.com/Symii/angular-app-carshop/)
 
 
 
