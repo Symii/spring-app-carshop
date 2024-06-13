@@ -25,13 +25,16 @@ Aplikacja została zbudowana w oparciu o framework **Spring Boot**.
 1. **Klonowanie repozytorium:** Sklonuj to repozytorium na swoje lokalne środowisko.
    ```bash
    git clone https://github.com/symii/spring-app-carshop.git
-2. **Uruchomienie aplikacji:** Przejdź do katalogu z aplikacją i uruchom ją za pomocą narzędzia Maven.
+2. **Konfiguracja bazy danych - utwórz baze danych o nazwie car_shop
+   ```bash
+   create database car_shop;
+3. **Uruchomienie aplikacji:** Przejdź do katalogu z aplikacją i uruchom ją za pomocą narzędzia Maven.
     ```bash
     cd carshop
     mvn spring-boot:run
-3. **Przeglądanie:** Otwórz przeglądarkę internetową i przejdź pod adres.
+4. **Przeglądanie:** Otwórz przeglądarkę internetową i przejdź pod adres.
     ```bash
-     http://localhost:80
+     http://localhost:80/api/cars
 
 
 
