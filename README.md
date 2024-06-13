@@ -36,7 +36,7 @@ Aplikacja została zbudowana w oparciu o framework **Spring Boot**.
 3. **Uruchomienie aplikacji:** Przejdź do katalogu z aplikacją i uruchom ją za pomocą narzędzia Maven.
     ```bash
     cd carshop
-    mvn spring-boot:run
+    mvnw spring-boot:run
 4. **Przeglądanie:** Otwórz przeglądarkę internetową i przejdź pod adres.
     ```bash
      http://localhost:80/api/cars
