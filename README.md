@@ -4,17 +4,22 @@
 
 ## Opis
 
-Aplikacja **CarShop** to platforma internetowa działająca na zasadzie ogłoszeń sprzedaży samochodów. Umożliwia przeglądanie dostępnych ofert bez konieczności logowania, a zalogowanym użytkownikom daje możliwość dodawania nowych ogłoszeń. Dodatkowo, użytkownicy mogą zapisywać interesujące ich oferty do ulubionych oraz korzystać z funkcji wyszukiwania i filtrowania ofert.
+Aplikacja **CarShop-Spring** to aplikacja REST-API.
 
 ## Funkcje
 
-- **Przeglądanie ofert:** Użytkownicy mogą przeglądać dostępne oferty samochodów bez konieczności logowania.
+- **GET** `http://localhost/api/cars`
+- **GET** `http://localhost/api/cars/1`
+- **GET** `http://localhost/api/cars/random`
+- **GET** `http://localhost/api/cars/search/findByKeyword?keyword=Audi`
+- **GET** `http://localhost/api/cars/filter?page=0&size=12&brand=Audi&body=sedan&priceFrom=0&priceTo=90000&yearProducedFrom=2016&fuelType=benzyna`
   
-- **Dodawanie ogłoszeń:** Zalogowani użytkownicy mogą dodawać nowe ogłoszenia sprzedaży samochodów.
+- **PUT** `http://localhost/api/cars`
+- **POST** `http://localhost/api/cars`
+- **DELETE** `http://localhost/api/cars/{carId}`
 
-- **Zapisywanie do ulubionych:** Użytkownicy mogą zapisywać wybrane oferty do ulubionych, aby łatwo do nich wrócić w przyszłości.
-
-- **Wyszukiwanie i filtrowanie:** Aplikacja umożliwia użytkownikom wyszukiwanie i filtrowanie ofert na podstawie różnych kryteriów, takich jak marka, model, cena, rok produkcji itp.
+ @RequestBody Annouance annouance
+- **POST** `http://localhost/api/annouance/new`
 
 ## Technologie
 
