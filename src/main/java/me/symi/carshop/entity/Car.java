@@ -34,6 +34,8 @@ public class Car {
     private boolean damaged;
     @Column(name = "description")
     private String description;
+    @Column(name="body")
+    private String body;
 
     @OneToMany(mappedBy = "car", cascade = {CascadeType.DETACH, CascadeType.MERGE,
             CascadeType.PERSIST, CascadeType.REFRESH},
@@ -60,6 +62,7 @@ public class Car {
         this.description = description;
         this.customer = customer;
     }
+
 
     public int getId() {
         return id;
@@ -99,6 +102,14 @@ public class Car {
 
     public void setPrice(int price) {
         this.price = price;
+    }
+
+    public String getBody() {
+        return body;
+    }
+
+    public void setBody(String body) {
+        this.body = body;
     }
 
     public int getYearProduced() {

@@ -58,19 +58,31 @@ public class CarRestController {
                                         @RequestParam(required = false) String yearProducedFrom,
                                         @RequestParam(required = false) String fuelType)
     {
-        String sql = "SELECT * FROM Car c WHERE 1=1";
+        String sql = "SELECT c.id, c.brand, c.color, " +
+                "c.damaged, c.description, c.gear_type, c.mileage," +
+                "c.model, c.price, c.year_produced, c.body, c.engine_id, c.customer_id," +
+                "engine.capacity, engine.fuel_type, engine.horsepower " +
+                "FROM Car c " +
+                "JOIN engine ON c.engine_id = engine.id " +
+                "WHERE 1=1";
         if(brand != null && !brand.equals("any")) {
-            sql += " AND c.brand LIKE \"%"+brand+"%\"";
+            sql += " AND c.brand LIKE '%"+brand+"%'";
         }
-        // TODO: body
+        if(body != null) {
+            sql += " AND c.body LIKE '%"+body+"%'";
+        }
         if(priceFrom != null) {
             sql += " AND c.price > " + priceFrom;
         }
         if(priceTo != null) {
             sql += " AND c.price < " + priceTo;
         }
-        // TODO: yearFrom
-        // TODO: fuelType
+        if(yearProducedFrom != null) {
+            sql += " AND c.year_produced >= " + yearProducedFrom;
+        }
+        if(fuelType != null) {
+            sql += " AND engine.fuel_type = '"+fuelType+"'";
+        }
         sql += " LIMIT " + size;
         return appService.findCarsByFilter(sql);
     }

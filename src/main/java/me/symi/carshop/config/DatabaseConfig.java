@@ -17,7 +17,7 @@ public class DatabaseConfig {
 
     @Autowired
     private DataSource dataSource;
-
+/*
     @Bean
     public DataSourceInitializer dataSourceInitializer() {
         System.out.println("Tworzenie tabel i wstawianie przykladowych danych...");
@@ -39,5 +39,5 @@ public class DatabaseConfig {
         ResourceDatabasePopulator populator = new ResourceDatabasePopulator(resource);
         populator.execute(dataSource);
         System.out.println("Tabele zostały usuniete.");
-    }
+    }*/
 }
