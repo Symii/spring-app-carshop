@@ -33,14 +33,18 @@ Aplikacja została zbudowana w oparciu o framework **Spring Boot**.
 2. **Konfiguracja bazy danych MYSQL - utwórz baze danych o nazwie car_shop
    ```bash
    create database car_shop;
-3. **Uruchomienie aplikacji:** Przejdź do katalogu z aplikacją i uruchom ją za pomocą narzędzia Maven.
+3. **Uruchomienie Apache Kafka**
+   ```bash
+   bin/zookeeper-server-start.sh config/zookeeper.properties
+   bin/kafka-server-start.sh config/server.properties
+4. **Uruchomienie aplikacji:** Przejdź do katalogu z aplikacją i uruchom ją za pomocą narzędzia Maven.
     ```bash
     cd spring-app-carshop
     mvnw spring-boot:run
-4. **Przeglądanie:** Otwórz przeglądarkę internetową i przejdź pod adres.
+5. **Przeglądanie:** Otwórz przeglądarkę internetową i przejdź pod adres.
     ```bash
      http://localhost:80/api/cars
-5. **Frontend:** [Teraz możesz uruchomić projekt Angular](https://github.com/Symii/angular-app-carshop/)
+6. **Frontend:** [Teraz możesz uruchomić projekt Angular](https://github.com/Symii/angular-app-carshop/)
 
 
 
