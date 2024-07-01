@@ -36,6 +36,8 @@ public class SecurityConfig {
         http.authorizeHttpRequests(configurer ->
                 configurer
                         .requestMatchers(HttpMethod.GET, "/api/cars").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/api/chat/**").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/api/chat/**").permitAll()
                         .requestMatchers(HttpMethod.GET, "/api/cars/**").permitAll()
                         .requestMatchers(HttpMethod.POST, "/api/annouance/new").permitAll()
                         .requestMatchers(HttpMethod.POST, "/api/cars").hasRole("ADMIN")
