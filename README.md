@@ -34,17 +34,22 @@ Aplikacja została zbudowana w oparciu o framework **Spring Boot**.
    ```bash
    create database car_shop;
 3. **Uruchomienie Apache Kafka**
-   ```bash
+(Linux / ubuntu)
+   ```
    bin/zookeeper-server-start.sh config/zookeeper.properties
    bin/kafka-server-start.sh config/server.properties
-4. **Uruchomienie aplikacji:** Przejdź do katalogu z aplikacją i uruchom ją za pomocą narzędzia Maven.
+lub (Windows)
+
+        C:\kafka\bin\windows\zookeeper-server-start.bat C:\kafka\config\zookeeper.properties
+        C:\kafka\bin\windows\kafka-server-start.bat C:\kafka\config\server.properties
+5. **Uruchomienie aplikacji:** Przejdź do katalogu z aplikacją i uruchom ją za pomocą narzędzia Maven.
     ```bash
     cd spring-app-carshop
     mvnw spring-boot:run
-5. **Przeglądanie:** Otwórz przeglądarkę internetową i przejdź pod adres.
+6. **Przeglądanie:** Otwórz przeglądarkę internetową i przejdź pod adres.
     ```bash
      http://localhost:80/api/cars
-6. **Frontend:** [Teraz możesz uruchomić projekt Angular](https://github.com/Symii/angular-app-carshop/)
+7. **Frontend:** [Teraz możesz uruchomić projekt Angular](https://github.com/Symii/angular-app-carshop/)
 
 
 
