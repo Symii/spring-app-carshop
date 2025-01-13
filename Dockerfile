@@ -11,4 +11,4 @@ COPY target/carshop-0.0.1-SNAPSHOT.jar /app/myapp.jar
 EXPOSE 8080
 
 # Polecenie uruchamiające aplikację
-CMD ["java", "-jar", "/app/myapp.jar"]
+CMD ["java", "-Dserver.address=0.0.0.0", "-Dserver.port=8080", "-jar", "/app/myapp.jar"]
