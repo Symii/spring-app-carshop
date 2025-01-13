@@ -1,5 +1,5 @@
 # Wykorzystanie obrazu OpenJDK jako podstawy
-FROM openjdk:17-jdk-slim
+FROM openjdk:21-jdk-slim
 
 # Ustaw zmienną środowiskową PORT
 ENV PORT=8080
