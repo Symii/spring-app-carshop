@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>CARSHOP - nowe i używane samochody></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/css/car-list.css}">
+    <link rel="stylesheet" th:href="@{/css/navigation.css}">
+    <link rel="stylesheet" th:href="@{/css/footer.css}">
+    <link rel="icon" type="image/x-icon" th:href="@{/img/icon.ico}">
+
+    <script th:src="@{/js/gallery-slide.js}" defer></script>
+</head>
+<body>
+
+<div th:replace="~{base :: navigation}"></div>
+
+<div class="gallery">
+    <div class="car-list-row">
+        <div class="image">
+            <a th:href="@{${carUrl1}}"></a>
+            <img th:src="@{'/image/' + ${car1.images[0].id}}" >
+            <h5 th:text="${car1.brand} + ' ' + ${car1.model} + ' ' + ${car1.carEngine.name}"></h5>
+            <p th:text="${car1.yearProduced} + ' · ' + ${car1.mileage} + ' km · ' + ${car1.carEngine.capacity} + ' · ' + ${car1.carEngine.fuelType}"></p>
+            <div class="car-price">
+                <label th:text="${car1.price}"></label>
+                <label>PLN</label>
+            </div>
+        </div>
+        <div class="image">
+            <a th:href="@{${carUrl2}}"></a>
+            <img th:src="@{'/image/' + ${car2.images[0].id}}" >
+            <h5 th:text="${car2.brand} + ' ' + ${car2.model} + ' ' + ${car2.carEngine.name}"></h5>
+            <p th:text="${car2.yearProduced} + ' · ' + ${car2.mileage} + ' km · ' + ${car2.carEngine.capacity} + ' · ' + ${car2.carEngine.fuelType}"></p>
+            <div class="car-price">
+                <label th:text="${car2.price}"></label>
+                <label>PLN</label>
+            </div>
+        </div>
+        <div class="image">
+            <a th:href="@{${carUrl3}}"></a>
+            <img th:src="@{'/image/' + ${car3.images[0].id}}">
+            <h5 th:text="${car3.brand} + ' ' + ${car3.model} + ' ' + ${car3.carEngine.name}"></h5>
+            <p th:text="${car3.yearProduced} + ' · ' + ${car3.mileage} + ' km · ' + ${car2.carEngine.capacity} + ' · ' + ${car3.carEngine.fuelType}"></p>
+            <div class="car-price">
+                <label th:text="${car3.price}"></label>
+                <label>PLN</label>
+            </div>
+        </div>
+    </div>
+    <div class="car-list-row">
+        <div class="image">
+            <a th:href="@{${carUrl4}}"></a>
+            <img th:src="@{'/image/' + ${car4.images[0].id}}" >
+            <h5 th:text="${car4.brand} + ' ' + ${car4.model} + ' ' + ${car4.carEngine.name}"></h5>
+            <p th:text="${car4.yearProduced} + ' · ' + ${car4.mileage} + ' km · ' + ${car4.carEngine.capacity} + ' · ' + ${car4.carEngine.fuelType}"></p>
+            <div class="car-price">
+                <label th:text="${car4.price}"></label>
+                <label>PLN</label>
+            </div>
+        </div>
+        <div class="image">
+            <a th:href="@{${carUrl5}}"></a>
+            <img th:src="@{'/image/' + ${car5.images[0].id}}" >
+            <h5 th:text="${car5.brand} + ' ' + ${car5.model} + ' ' + ${car5.carEngine.name}"></h5>
+            <p th:text="${car5.yearProduced} + ' · ' + ${car5.mileage} + ' km · ' + ${car5.carEngine.capacity} + ' · ' + ${car5.carEngine.fuelType}"></p>
+            <div class="car-price">
+                <label th:text="${car5.price}"></label>
+                <label>PLN</label>
+            </div>
+        </div>
+        <div class="image">
+            <a th:href="@{${carUrl6}}"></a>
+            <img th:src="@{'/image/' + ${car6.images[0].id}}" >
+            <h5 th:text="${car6.brand} + ' ' + ${car6.model} + ' ' + ${car6.carEngine.name}"></h5>
+            <p th:text="${car6.yearProduced} + ' · ' + ${car6.mileage} + ' km · ' + ${car6.carEngine.capacity} + ' · ' + ${car6.carEngine.fuelType}"></p>
+            <div class="car-price">
+                <label th:text="${car6.price}"></label>
+                <label>PLN</label>
+            </div>
+        </div>
+    </div>
+    <div class="car-list-row row-small">
+        <div class="image">
+            <a th:href="@{${carUrl7}}"></a>
+            <img th:src="@{'/image/' + ${car7.images[0].id}}" >
+            <h5 th:text="${car7.brand} + ' ' + ${car7.model} + ' ' + ${car7.carEngine.name}"></h5>
+            <p th:text="${car7.yearProduced} + ' · ' + ${car7.mileage} + ' km · ' + ${car7.carEngine.capacity} + ' · ' + ${car7.carEngine.fuelType}"></p>
+            <div class="car-price">
+                <label th:text="${car7.price}"></label>
+                <label>PLN</label>
+            </div>
+        </div>
+        <div class="image">
+            <a th:href="@{${carUrl8}}"></a>
+            <img th:src="@{'/image/' + ${car8.images[0].id}}" >
+            <h5 th:text="${car8.brand} + ' ' + ${car8.model} + ' ' + ${car8.carEngine.name}"></h5>
+            <p th:text="${car8.yearProduced} + ' · ' + ${car8.mileage} + ' km · ' + ${car8.carEngine.capacity} + ' · ' + ${car8.carEngine.fuelType}"></p>
+            <div class="car-price">
+                <label th:text="${car8.price}"></label>
+                <label>PLN</label>
+            </div>
+        </div>
+        <div class="image">
+            <a th:href="@{${carUrl9}}"></a>
+            <img th:src="@{'/image/' + ${car9.images[0].id}}" >
+            <h5 th:text="${car9.brand} + ' ' + ${car9.model} + ' ' + ${car9.carEngine.name}"></h5>
+            <p th:text="${car9.yearProduced} + ' · ' + ${car9.mileage} + ' km · ' + ${car9.carEngine.capacity} + ' · ' + ${car9.carEngine.fuelType}"></p>
+            <div class="car-price">
+                <label th:text="${car9.price}"></label>
+                <label>PLN</label>
+            </div>
+        </div>
+        <div class="image">
+            <a th:href="@{${carUrl10}}"></a>
+            <img th:src="@{'/image/' + ${car10.images[0].id}}" >
+            <h5 th:text="${car10.brand} + ' ' + ${car10.model} + ' ' + ${car10.carEngine.name}"></h5>
+            <p th:text="${car10.yearProduced} + ' · ' + ${car10.mileage} + ' km · ' + ${car10.carEngine.capacity} + ' · ' + ${car10.carEngine.fuelType}"></p>
+            <div class="car-price">
+                <label th:text="${car10.price}"></label>
+                <label>PLN</label>
+            </div>
+        </div>
+        <div class="image">
+            <a th:href="@{${carUrl11}}"></a>
+            <img th:src="@{'/image/' + ${car11.images[0].id}}" >
+            <h5 th:text="${car11.brand} + ' ' + ${car11.model} + ' ' + ${car11.carEngine.name}"></h5>
+            <p th:text="${car11.yearProduced} + ' · ' + ${car11.mileage} + ' km · ' + ${car11.carEngine.capacity} + ' · ' + ${car11.carEngine.fuelType}"></p>
+            <div class="car-price">
+                <label th:text="${car11.price}"></label>
+                <label>PLN</label>
+            </div>
+        </div>
+        <div class="image">
+            <a th:href="@{${carUrl12}}"></a>
+            <img th:src="@{'/image/' + ${car12.images[0].id}}" >
+            <h5 th:text="${car12.brand} + ' ' + ${car12.model} + ' ' + ${car12.carEngine.name}"></h5>
+            <p th:text="${car12.yearProduced} + ' · ' + ${car12.mileage} + ' km · ' + ${car12.carEngine.capacity} + ' · ' + ${car12.carEngine.fuelType}"></p>
+            <div class="car-price">
+                <label th:text="${car12.price}"></label>
+                <label>PLN</label>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:replace="~{base :: newsletter}"></div>
+<div th:replace="~{base :: footer}"></div>
+</body>
+</html>

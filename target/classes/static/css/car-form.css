@@ -1,0 +1,205 @@
+.osobwe-form input {
+    border: none;
+    border-radius: 0;
+    background-color: #EBECEF;
+ }
+
+
+.osobwe-form input:focus {
+     -moz-box-shadow: none !important;
+     -webkit-box-shadow: none !important;
+     box-shadow: none !important;
+     outline-width: 0;
+     border-bottom: 2px solid #E74783 !important;
+ }
+
+h3 {
+    margin-top: 40px;
+}
+h4 {
+    color: #66676C;
+    margin-top: 25px;
+}
+
+
+.wrapper{
+  display: flex;
+  background: #fff;
+  width: 100%;
+  align-items: left;
+}
+.wrapper label:first-child {
+    margin-right: 50px;
+}
+
+.wrapper .option{
+  background: #fff;
+  height: 30px;
+  width: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 0 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 0 10px;
+  border: 2px solid lightgrey;
+  transition: all 0.3s ease;
+}
+.wrapper .option .dot{
+  height: 20px;
+  width: 20px;
+  background: #d9d9d9;
+  border-radius: 50%;
+  position: relative;
+}
+.wrapper .option .dot::before{
+  position: absolute;
+  content: "";
+  top: 4px;
+  left: 4px;
+  width: 12px;
+  height: 12px;
+  background: #0069d9;
+  border-radius: 50%;
+  opacity: 0;
+  transform: scale(1.5);
+  transition: all 0.3s ease;
+}
+input[type="radio"]{
+  display: none;
+}
+#uszkodzony_nie:checked:checked ~ .option-1,
+ #uszkodzony_tak:checked:checked ~ .option-2{
+   border-color: #0069d9;
+   background: #0069d9;
+ }
+ #uszkodzony_nie:checked:checked ~ .option-1 .dot,
+ #uszkodzony_tak:checked:checked ~ .option-2 .dot{
+   background: #fff;
+ }
+ #uszkodzony_nie:checked:checked ~ .option-1 .dot::before,
+ #uszkodzony_tak:checked:checked ~ .option-2 .dot::before{
+   opacity: 1;
+   transform: scale(1);
+ }
+ .wrapper .option span{
+   font-size: 20px;
+   color: #808080;
+ }
+ #uszkodzony_nie:checked:checked ~ .option-1 span,
+ #uszkodzony_tak:checked:checked ~ .option-2 span{
+   color: #fff;
+ }
+
+ /**/
+
+ #importowany_nie:checked:checked ~ .option-1,
+ #importowany_tak:checked:checked ~ .option-2{
+   border-color: #0069d9;
+   background: #0069d9;
+ }
+ #importowany_nie:checked:checked ~ .option-1 .dot,
+ #importowany_tak:checked:checked ~ .option-2 .dot{
+   background: #fff;
+ }
+ #importowany_nie:checked:checked ~ .option-1 .dot::before,
+ #importowany_tak:checked:checked ~ .option-2 .dot::before{
+   opacity: 1;
+   transform: scale(1);
+ }
+ .wrapper .option span{
+   font-size: 20px;
+   color: #808080;
+ }
+ #importowany_nie:checked:checked ~ .option-1 span,
+ #importowany_tak:checked:checked ~ .option-2 span{
+   color: #fff;
+ }
+
+.mileage-input {
+    display: flex;
+}
+ .mileage-input input {
+    width: 350px;
+ }
+
+
+.mileage-input span {
+    width: 50px;
+    color: #787878;
+    background-color: #EBECEF;
+ }
+.mileage-input input:focus ~ .mileage-input span {
+     box-shadow: none !important;
+     outline-width: 0;
+     border-bottom: 2px solid #E74783 !important;
+     background: #fff;
+}
+
+#przebieg {
+    width: 350px !important;
+}
+
+
+.input-wrapper select {
+    display: block;
+    width: 400px;
+    height: calc(2.25rem + 2px);
+    padding: 0.375rem 1.75rem 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #EBECEF;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+/* Styl dla aktywnego selecta */
+.input-wrapper select:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+/* Styl dla wybranych opcji */
+.input-wrapper option {
+    color: #212529;
+    background-color: #fff;
+}
+
+.input-wrapper {
+    display:flex;
+    justify-content: space-between
+}
+
+.input-wrapper div {
+    width: 400px;
+}
+
+.contact-button {
+  float:right;
+  background-color: #C82814;
+  border: 5px solid #C82814;
+  width: 300px;
+  color: white;
+  padding: 5px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+  font-weight: bold;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+.contact-button:hover {
+  background-color: white;
+  color: #C82814;
+}

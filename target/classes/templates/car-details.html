@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="${theCar.brand} + ' ' + ${theCar.model} + ' ' + ${theCar.yearProduced} + 'r.'"></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/css/car-info.css}">
+    <link rel="stylesheet" th:href="@{/css/navigation.css}">
+    <link rel="stylesheet" th:href="@{/css/footer.css}">
+    <link rel="icon" type="image/x-icon" th:href="@{/img/icon.ico}">
+
+    <script th:src="@{/js/gallery-slide.js}" defer></script>
+</head>
+<body>
+
+<div th:replace="~{base :: navigation}"></div>
+
+
+<div class="car-container">
+    <div class="gallery-container">
+        <div class="gallery">
+            <div class="gallery-images">
+                <img th:each="image : ${theCar.images}" th:src="@{'/image/' + ${image.id}}" alt="...">
+            </div>
+            <button class="prev-btn" onclick="prevSlide()">&#10094;</button>
+            <button class="next-btn" onclick="nextSlide()">&#10095;</button>
+        </div>
+        <br><br><br><br><br><br>
+        <div class="gallery-bottom-info">
+            <label>
+                24 kwietnia 2024 22:28
+            </label>
+
+            <a style="float: right;" href="#"><i class="bi bi-share"></i> Udostępnij to ogłoszenie</a>
+        </div>
+    </div>
+    <div class="car-info">
+        <h2 th:text="${theCar.brand} + ' ' + ${theCar.model} + ' ' + ${theCar.carEngine.name} + ' ' + ${theCar.gearType}"></h2>
+        <label th:text="${theCar.yearProduced} + ' · '"></label>
+        <label th:text="${theCar.mileage} + ' km · '"></label>
+        <label th:text="${theCar.carEngine.capacity} + ' · '"></label>
+        <label th:text="${theCar.carEngine.fuelType}"></label>
+
+        <div class="car-price">
+            <label th:text="${theCar.price}"></label>
+            <label>PLN</label>
+        </div>
+
+        <div class="customer-info">
+            <p th:text="${theCar.customer.firstName} + ' ' + ${theCar.customer.lastName}"></p>
+            <br>
+            <p><i class="bi bi-shield-fill-check"></i> Profesjonalny sprzedający</p>
+            <p><i class="bi bi-chat-fill"></i> Bardzo sprawnie odpowiada</p>
+            <p><i class="bi bi-person-fill"></i> Sprzedający na CARSHOP od <label>2024</label></p>
+
+            <a href="#" class="contact-button"><i class="bi bi-envelope-check"></i> Kontakt ze sprzedającym</a><br>
+            <a href="#" class="telephone-button"><i class="bi bi-telephone"></i> Wyświetl numer</a>
+        </div>
+
+    </div>
+</div>
+
+<br><hr>
+<div class="container">
+    <h2>Szczegóły</h2><br>
+    <div class="car-details-container">
+        <div class="car-details">
+            <div class="car-details-desc-item">
+                <label>Oferta od</label>
+                <label>Osoba prywatna</label>
+            </div>
+            <div class="car-details-desc-item">
+                <label>Ma numer rejestracyjny</label>
+                <label>Tak</label>
+            </div>
+            <div class="car-details-desc-item">
+                <label>Marka pojazdu</label>
+                <label th:text="${theCar.brand}"></label>
+            </div>
+            <div class="car-details-desc-item">
+                <label>Model pojazdu</label>
+                <label th:text="${theCar.model}"></label>
+            </div>
+
+            <div class="car-details-desc-item">
+                <label>Wersja</label>
+                <label th:text="${theCar.carEngine.name}"></label>
+            </div>
+            <div class="car-details-desc-item">
+                <label>Rok produkcji</label>
+                <label th:text="${theCar.yearProduced}"></label>
+            </div>
+            <div class="car-details-desc-item">
+                <label>Przebieg</label>
+                <label th:text="${theCar.mileage}"></label>
+            </div>
+            <div class="car-details-desc-item">
+                <label>Pojemność skokowa</label>
+                <label th:text="${theCar.carEngine.capacity} + ' cm3'"></label>
+            </div>
+            <div class="car-details-desc-item">
+                <label>Rodzaj paliwa</label>
+                <label th:text="${theCar.carEngine.fuelType}"></label>
+            </div>
+        </div>
+
+        <div class="car-details">
+            <div class="car-details-desc-item">
+                <label>Kolor</label>
+                <label th:text="${theCar.color}"></label>
+            </div>
+            <div class="car-details-desc-item">
+                <label>Bezwypadkowy</label>
+                <label th:text="${theCar.damaged}"></label>
+            </div>
+            <div class="car-details-desc-item">
+                <label>Stan</label>
+                <label>Używane</label>
+            </div>
+            <div class="car-details-desc-item">
+                <label>Skrzynia biegów</label>
+                <label th:text="${theCar.gearType}"></label>
+            </div>
+
+            <div class="car-details-desc-item">
+                <label>Moc</label>
+                <label th:text="${theCar.carEngine.horsePower} + ' KM'"></label>
+            </div>
+        </div>
+    </div>
+</div>
+<br><hr>
+<div class="container">
+    <h2>Opis</h2><br>
+    <p th:text="${theCar.description}"></p>
+</div>
+<br><hr>
+
+<div th:replace="~{base :: newsletter}"></div>
+<div th:replace="~{base :: footer}"></div>
+</body>
+</html>

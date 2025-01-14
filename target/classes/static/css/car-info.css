@@ -1,0 +1,135 @@
+.gallery-container {
+  width: 500px;
+}
+
+.gallery {
+  position: relative;
+  overflow: hidden;
+}
+
+.gallery-images {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.gallery-images img {
+  max-width: 100%;
+  height: auto;
+}
+
+.prev-btn,
+.next-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: white;
+  font-size: 20px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.prev-btn {
+  left: 0;
+}
+
+.next-btn {
+  right: 0;
+}
+
+.car-container {
+    margin: 40px auto;
+    width: 1000px;
+    display: flex;
+    justify-content: space-between;
+}
+.car-info {
+    max-width: 400px;
+}
+
+.car-price {
+    display: flex;
+}
+
+.car-price label:first-child {
+    color: #C82814;
+    font-weight: bold;
+    font-size: 23px;
+}
+
+.car-price label:nth-child(2) {
+    color: #C82814;
+    font-size: 16px;
+    margin-left: 5px;
+}
+.car-details-desc-item {
+    display: flex;
+    max-width: 400px;
+    text-align: left;
+    font-size: 15px;
+}
+
+.car-details-desc-item label {
+    width: 200px;
+}
+.car-details-desc-item label:first-child {
+    font-weight: bold;
+    color: #676767;
+}
+.car-details-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.customer-info {
+    border: solid 1px #89898965;
+    padding: 40px 20px;
+    border-radius: 2px;
+}
+
+.contact-button {
+  background-color: #C82814;
+  border: 5px solid #C82814;
+  width: 100%;
+  color: white;
+  padding: 5px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+  font-weight: bold;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+.contact-button:hover {
+  background-color: white;
+  color: #C82814;
+}
+
+.telephone-button {
+  background-color: #fff;
+  border: 5px solid #E74783;
+  width: 100%;
+  color: #E74783;
+  padding: 5px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+  font-weight: bold;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+.telephone-button:hover {
+  background-color: #E74783;
+  color: #fff;
+}
+
+.gallery-bottom-info {
+    width: 100%;
+}

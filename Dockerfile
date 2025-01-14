@@ -12,3 +12,4 @@ EXPOSE 8080
 
 # Polecenie uruchamiające aplikację
 CMD ["java", "-Dserver.address=0.0.0.0", "-Dserver.port=8080", "-jar", "/app/myapp.jar"]
+
