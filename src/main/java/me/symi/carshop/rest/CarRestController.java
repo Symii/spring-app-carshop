@@ -62,7 +62,7 @@ public class CarRestController {
                 "c.damaged, c.description, c.gear_type, c.mileage," +
                 "c.model, c.price, c.year_produced, c.body, c.engine_id, c.customer_id," +
                 "engine.capacity, engine.fuel_type, engine.horsepower " +
-                "FROM Car c " +
+                "FROM car c " +
                 "JOIN engine ON c.engine_id = engine.id " +
                 "WHERE 1=1";
         if(brand != null && !brand.equals("any")) {
