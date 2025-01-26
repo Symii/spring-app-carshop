@@ -30,7 +30,7 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "https://symii.github.io/")
 public class CarRestController {
 
     private final String uploadDir = Paths.get(System.getProperty("user.dir"), "uploads").toString();
