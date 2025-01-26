@@ -40,6 +40,8 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.GET, "/api/chat/**").permitAll()
                         .requestMatchers(HttpMethod.GET, "/api/cars/**").permitAll()
                         .requestMatchers(HttpMethod.POST, "/api/annouance/new").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/api/upload").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/api/upload").permitAll()
                         .requestMatchers(HttpMethod.POST, "/api/cars").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.PUT, "/api/cars").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.DELETE, "/api/cars/**").hasRole("ADMIN")
@@ -50,6 +52,7 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.GET, "/img/**").permitAll()
                         .requestMatchers(HttpMethod.GET, "/css/**").permitAll()
                         .requestMatchers(HttpMethod.POST, "/uploadImage").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/uploads/**").permitAll()
                         .anyRequest().authenticated()
         )
         .formLogin(form ->

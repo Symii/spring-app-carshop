@@ -3,7 +3,6 @@ me\symi\carshop\repository\dao\RoleDao.class
 me\symi\carshop\service\UserService.class
 me\symi\carshop\repository\CarRepository.class
 me\symi\carshop\entity\Car.class
-me\symi\carshop\rest\ChatController.class
 me\symi\carshop\repository\CustomerRepository.class
 me\symi\carshop\rest\CarErrorResponse.class
 me\symi\carshop\entity\Review.class
@@ -20,12 +19,12 @@ me\symi\carshop\repository\dao\RoleDaoImpl.class
 me\symi\carshop\repository\ImageRepository.class
 me\symi\carshop\entity\ImageEntity.class
 me\symi\carshop\service\UserServiceImpl.class
+me\symi\carshop\controller\FileController.class
 me\symi\carshop\security\user\WebUser.class
 me\symi\carshop\service\AppService.class
 me\symi\carshop\CarshopApplication.class
 me\symi\carshop\config\KafkaConfig.class
 me\symi\carshop\security\CustomAuthenticationSuccessHandler.class
-me\symi\carshop\service\KafkaProducer.class
 me\symi\carshop\controller\CarController.class
 me\symi\carshop\rest\CarRestExceptionHandler.class
 me\symi\carshop\service\AnnouanceService.class
@@ -35,4 +34,3 @@ me\symi\carshop\controller\SecurityController.class
 me\symi\carshop\utils\TwoWayEncryption.class
 me\symi\carshop\dto\AnnouanceResponse.class
 me\symi\carshop\entity\Customer.class
-me\symi\carshop\service\KafkaConsumer.class
