@@ -30,10 +30,10 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin(origins = "https://symii.github.io")
+@CrossOrigin(origins = "http://localhost:4200")
 public class CarRestController {
 
-    private final String uploadDir = Paths.get(System.getProperty("user.home"), "uploads").toString();
+    private final String uploadDir = Paths.get(System.getProperty("user.dir"), "uploads").toString();
     private AppService appService;
     private AnnouanceService annouanceService;
 
@@ -47,14 +47,20 @@ public class CarRestController {
     public ResponseEntity<Map<String, String>> uploadFile(@RequestParam("file") MultipartFile file,
                              @RequestParam("link") String link) throws IOException {
         Map<String, String> response = new HashMap<>();
+        System.out.println("testp");
+        File directory = new File(uploadDir);
+        if (!directory.exists()) {
+            directory.mkdirs();
+        }
 
         if (file.isEmpty()) {
             response.put("message", "Plik jest pusty!");
+            System.out.println("Plik jest pusty");
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
         }
 
         String fileName = UUID.randomUUID().toString() + "_" + file.getOriginalFilename();
-        Path targetLocation = Paths.get(uploadDir + fileName);
+        Path targetLocation = Paths.get(uploadDir + "\\" + fileName);
 
         Files.createDirectories(targetLocation.getParent());
         file.transferTo(targetLocation.toFile());
@@ -75,11 +81,14 @@ public class CarRestController {
             imageEntity.setCar(appService.findCarById(carId));
             appService.saveImage(imageEntity);
 
+            System.out.println(fileDownloadUri);
+
             response.put("message", "Plik został przesłany pomyślnie!");
             response.put("fileUrl", fileDownloadUri);
             return ResponseEntity.status(HttpStatus.CREATED).body(response);
         } else {
             response.put("message", "Nie znaleziono identyfikatora samochodu w URL.");
+            System.out.println("Nie znaleziono identyfikatora samochodu w URL.");
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
         }
     }

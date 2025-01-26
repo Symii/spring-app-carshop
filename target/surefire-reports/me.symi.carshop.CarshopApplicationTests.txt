@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: me.symi.carshop.CarshopApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.741 s -- in me.symi.carshop.CarshopApplicationTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.338 s -- in me.symi.carshop.CarshopApplicationTests

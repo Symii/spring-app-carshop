@@ -14,17 +14,21 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 @RestController
-@CrossOrigin(origins = "https://symii.github.io")
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/uploads")
 public class FileController {
 
-    private final String uploadDir = Paths.get(System.getProperty("user.home"), "uploads").toString();
+    private final String uploadDir = Paths.get(System.getProperty("user.dir"), "uploads").toString();
 
     @GetMapping("/{filename}")
     public ResponseEntity<Resource> getFile(@PathVariable String filename) {
         try {
-            Path targetLocation = Paths.get(uploadDir + filename);
-            File file = targetLocation.toFile();
+            File directory = new File(uploadDir);
+            if (!directory.exists()) {
+                directory.mkdirs();
+            }
+            File file = new File(uploadDir, filename);
+            Path targetLocation = file.toPath();
 
             System.out.println(targetLocation.toUri());
 
