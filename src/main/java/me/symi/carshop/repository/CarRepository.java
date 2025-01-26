@@ -17,4 +17,10 @@ public interface CarRepository extends JpaRepository<Car, Integer> {
 
     @Query("SELECT c FROM Car c WHERE brand LIKE %:keyword% OR color LIKE %:keyword% OR description LIKE %:keyword%")
     List<Car> findCarsByKeyword(@Param("keyword") String keyword);
+
+    @Query("SELECT DISTINCT c.brand FROM Car c")
+    List<String> findAllCarBrands();
+
+    @Query("SELECT COUNT(*) AS cars_count FROM Car")
+    int getCarsCount();
 }

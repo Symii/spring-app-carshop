@@ -245,4 +245,14 @@ public class AppServiceImpl implements AppService {
     public void deleteCarEngineById(int theId) {
         carEngineRepository.deleteById(theId);
     }
+
+    @Override
+    public List<String> findAllCarBrands() {
+        return carRepository.findAllCarBrands();
+    }
+
+    @Override
+    public int getCarsCount() {
+        return carRepository.getCarsCount();
+    }
 }

@@ -36,5 +36,6 @@ public interface AppService {
     CarEngine findCarEngineById(int theId);
     CarEngine saveCarEngine(CarEngine theCar);
     void deleteCarEngineById(int theId);
-
+    List<String> findAllCarBrands();
+    int getCarsCount();
 }

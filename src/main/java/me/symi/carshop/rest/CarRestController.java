@@ -38,6 +38,16 @@ public class CarRestController {
         return appService.findAllCarsPageable(pageable);
     }
 
+    @GetMapping("/car/brands")
+    public List<String> printAllCarBrands() {
+        return appService.findAllCarBrands();
+    }
+
+    @GetMapping("/cars/count")
+    public int getCarsCount() {
+        return appService.getCarsCount();
+    }
+
     @GetMapping("/cars/random")
     public List<Car> printRandomCars() {
         return appService.findTwentyRandomCars();
