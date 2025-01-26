@@ -38,7 +38,7 @@ public class CarRestController {
         return appService.findAllCarsPageable(pageable);
     }
 
-    @GetMapping("/car/brands")
+    @GetMapping("/cars/brands")
     public List<String> printAllCarBrands() {
         return appService.findAllCarBrands();
     }
